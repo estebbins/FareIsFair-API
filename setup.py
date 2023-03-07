@@ -14,13 +14,13 @@ with open('LICENSE.md') as f:
     LICENSE = f.read()
 
 setup(
-    name='django-auth-template',
+    name='fare_is_fair',
     version='0.1.0',
-    description='GA SEI Boston Django Authentication Template',
+    description='Interactive SMS-Browser Game',
     long_description=README,
-    author='<author>',
-    author_email='<email>',
-    url='https://github.com/WDI-SEA/django-auth-boilerplate',
+    author='Emily Stebbins',
+    author_email='stebbins.e@gmail.com',
+    url='https://github.com/estebbins/FareIsFair-API',
     license=LICENSE,
     packages=find_packages(exclude=('tests', 'docs'))
 )

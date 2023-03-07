@@ -120,7 +120,7 @@ Project planning guide. [^1]
 - [ ] Merge development branch(s) as needed with main
 
 **Sprint 5 (Est completion Delayed 3/14/23):**
-- [ ] Deploy application
+- [ ] Deploy application [^6]
 - [ ] Conduct extensive testing
 - [ ] Conduct user acceptance testing
 - [ ] Address bugs, errors, feedback
@@ -138,3 +138,4 @@ Project planning guide. [^1]
 [^3]: https://git.generalassemb.ly/sei-ec-remote/django-api-auth-boilerplate
 [^7]: used Lucid Chart to develop the final ERD.
 [^5]: https://git.generalassemb.ly/sei-ec-remote/react-auth-boilerplate
+[^6]: Deployment Guide: https://github.com/WDI-SEA/django-heroku-deployment-guide 

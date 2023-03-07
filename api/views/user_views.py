@@ -4,9 +4,13 @@ from rest_framework.exceptions import PermissionDenied
 from rest_framework import status, generics
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user, authenticate, login, logout
+from rest_framework import permissions
+from rest_framework import views
 
 from ..serializers import UserSerializer, UserRegisterSerializer,  ChangePasswordSerializer
 from ..models.user import User
+
+
 
 class SignUp(generics.CreateAPIView):
     # Override the authentication/permissions classes so this endpoint
