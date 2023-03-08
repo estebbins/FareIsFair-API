@@ -14,12 +14,15 @@ class UserManager(BaseUserManager):
     #            This ensures the proper error is thrown if a password is
     #            not provided.
     # **extra_fields:  Just in case there are extra arguments passed.
-    def create_user(self, email, password=None, **extra_fields):
+    def create_user(self, email, username, phone_number, password=None, **extra_fields):
         """Create a new user profile"""
         # Add a custom validation error
         if not email:
             raise ValueError('User must have an email address')
-
+        if not username:
+            raise ValueError('User must have a username address')
+        if not phone_number:
+            raise ValueError('User must have a phone number')
         # Create a user from the UserModel
         # Use the normalize_email method from the BaseUserManager to
         # normalize the domain of the email
@@ -36,12 +39,12 @@ class UserManager(BaseUserManager):
         # Always return the user!
         return user
 
-    def create_superuser(self, email, password):
+    def create_superuser(self, email, username, phone_number, password):
         """Create and save a new superuser with given details"""
 
         # Use the custom create_user method above to create
         # the user.
-        user = self.create_user(email, password)
+        user = self.create_user(email, username, phone_number, password)
 
         # Add the required is_superuser and is_staff properties
         # which must be set to True for superusers
@@ -59,6 +62,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     # As with any Django models, we need to define the fields
     # for the model with the type and options:
     email = models.EmailField(max_length=255, unique=True)
+    username = models.CharField(max_length=25, unique=True)
+    phone_number = models.CharField(max_length=12)
     # name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -73,7 +78,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     # This doesn't mean the field is required (that's defined above in the field options)
     # This refers to the fields that are prompted for when creating a superuser.
     # https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#django.contrib.auth.models.CustomUser.REQUIRED_FIELDS
-    # REQUIRED_FIELDS = ['name']
+    REQUIRED_FIELDS = ['username', 'phone_number']
 
     # Standard Python: We'll create a string representation so when
     # the class is output we'll get something meaningful.
@@ -81,15 +86,15 @@ class User(AbstractBaseUser, PermissionsMixin):
         """Return string representation of the user"""
         return self.email
 
-    def get_auth_token(self):
-        Token.objects.filter(user=self).delete()
-        token = Token.objects.create(user=self)
-        self.token = token.key
-        self.save()
-        return token.key
+    # def get_auth_token(self):
+    #     Token.objects.filter(user=self).delete()
+    #     token = Token.objects.create(user=self)
+    #     self.token = token.key
+    #     self.save()
+    #     return token.key
 
-    def delete_token(self):
-        Token.objects.filter(user=self).delete()
-        self.token = None
-        self.save()
-        return self
+    # def delete_token(self):
+    #     Token.objects.filter(user=self).delete()
+    #     self.token = None
+    #     self.save()
+    #     return self

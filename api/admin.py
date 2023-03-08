@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from .models.user import User
-from .models.game_session import GameSession
+from .models.game_session import GameSession, Player
 # from .models.mango import Mango
 
 class UserAdmin(BaseUserAdmin):
@@ -16,7 +16,7 @@ class UserAdmin(BaseUserAdmin):
     # fieldset including the list of fields.
     # Below we're saying create 4 sections, the first section has no name specified
     fieldsets = (
-      (None, {'fields': ('email', 'password')}),
+      (None, {'fields': ('email', 'username', 'phone_number', 'password')}),
       ('Permissions',
           {
               'fields': (
@@ -33,7 +33,7 @@ class UserAdmin(BaseUserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2')
+            'fields': ('email', 'username', 'phone_number', 'password1', 'password2')
         }),
     )
 
@@ -41,4 +41,5 @@ class UserAdmin(BaseUserAdmin):
 # class to format the pages:
 admin.site.register(User, UserAdmin)
 admin.site.register(GameSession)
+admin.site.register(Player)
 # admin.site.register(Mango)

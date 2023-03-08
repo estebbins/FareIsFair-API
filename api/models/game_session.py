@@ -9,10 +9,11 @@ class GameSession(models.Model):
     # This field is toggeled to True when the game is in progress ONLY
     is_active = models.BooleanField(default=False)
     # Universally unique identifier field up to 6 characters
-    session_code = models.UUIDField(
-            primary_key = True,
-            default = uuid.uuid4().hex[:6],
-            editable = False
+    unique_code = uuid.uuid4().hex[:6]
+    session_code = models.CharField(
+            max_length=6,
+            default=unique_code,
+            editable=False
     )
     # Password set by host to log into game
     session_password = models.CharField(max_length=8)
@@ -20,38 +21,8 @@ class GameSession(models.Model):
     # questions = models.ManyToManyField(Question)
     # ! Responses join - not sure if necessary
 
+    # Players & Player Data 
     players = models.ManyToManyField(get_user_model(), through='Player')
-
-    #### Player Data ####
-    # host = models.ForeignKey(
-    #     get_user_model(),
-    #     on_delete=models.SET_NULL,
-    #     related_name='host'
-    #     # Don't want to delete games when users get deleted because they could be in other accounts
-    #     #on_delete=models.CASCADE
-    # )
-    # player_one = models.ForeignKey(
-    #     # Do I need anything else here?
-    #     User,
-    #     on_delete=models.SET_NULL,
-    #     related_name='player_one'
-    # )
-    # player_two = models.ForeignKey(#
-    #     # Do I need anything else here?
-    #     User,
-    #     on_delete=models.SET_NULL,
-    #         related_name='player_one'
-    # )
-    # player_three = models.ForeignKey(
-    #     # Do I need anything else here?
-    #     User,
-    #     on_delete=models.SET_NULL
-    # )
-    # Fields to hold scores
-    # host_score = models.IntegerField()
-    # player_one_score = models.IntegerField()
-    # player_two_score = models.IntegerField()
-    # player_three_score = models.IntegerField()
 
     #### Game Data ####
     # Overall Game Result
@@ -66,15 +37,11 @@ class GameSession(models.Model):
         choices=GAME_RESULT_CHOICES, 
         default='pending'
     )
-    # winner = models.ForeignKey(
-    #     # How do I plug in the user here?
-    #     get_user_model(),
-    #     on_delete=models.SET_NULL
-    # )
+
     # Date the game was created (not editable, set upon creation of object)
     created_date = models.DateField(auto_now=False, auto_now_add=True)
     # Date the game was completed (will be set at the end of the game)
-    played_date = models.DateField(auto_now=False, auto_now_add=False)
+    played_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
 
 # # Create your models here.
 # class Mango(models.Model):
@@ -101,15 +68,23 @@ class GameSession(models.Model):
 #         'color': self.color
 #     }
 
+### Connection between Users & Game Sessions ###
 class Player(models.Model):
-    player = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL)
+    # Grab the user & game session
+    player = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True)
     game = models.ForeignKey(GameSession, on_delete=models.CASCADE)
+    # Set up role options for the players
     ROLE_CHOICES = (
         ('h', 'Host'),
         ('p1', 'Player One'),
         ('p1', 'Player Two'),
         ('p1', 'Player Three'),
+        ('na', 'Empty')
     )
-    role = models.CharField(max_length=2, choices=ROLE_CHOICES)
+    # Define the role, default to 'na'
+    role = models.CharField(max_length=2, choices=ROLE_CHOICES, default='na')
+    # Create a field for the game score
     score = models.IntegerField(default=0)
+    # Track if the player won the game (true) or lost(false) or game has not concluded (null)
     winner = models.BooleanField(null=True)
+
