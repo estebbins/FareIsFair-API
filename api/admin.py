@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from .models.user import User
+from .models.book_test import Book
 # from .models.mango import Mango
 
 class UserAdmin(BaseUserAdmin):
@@ -40,3 +41,4 @@ class UserAdmin(BaseUserAdmin):
 # class to format the pages:
 admin.site.register(User, UserAdmin)
 # admin.site.register(Mango)
+admin.site.register(Book)
