@@ -3,11 +3,37 @@ from rest_framework import serializers
 
 # from .models.mango import Mango
 from .models.user import User
+from .models.game_session import GameSession, Player
 
 # class MangoSerializer(serializers.ModelSerializer):
 #     class Meta:
 #         model = Mango
 #         fields = ('id', 'name', 'color', 'ripe', 'owner')
+
+class GameSessionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GameSession
+        fields = (
+            'id', 
+            'is_active', 
+            'session_code', 
+            'session_password',
+            'players',
+            'game_result',
+            'created_date',
+            'played_date'
+        )
+
+class PlayerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Player
+        fields = (
+            'player', 
+            'game',
+            'role',
+            'score',
+            'winner'
+        )
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation

@@ -43,6 +43,12 @@ class GameSession(models.Model):
     # Date the game was completed (will be set at the end of the game)
     played_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
 
+
+    def __str__(self):
+        # This must return a string
+        return f"The game code is named '{self.session_code}'"
+
+
 # # Create your models here.
 # class Mango(models.Model):
 #   # define fields
