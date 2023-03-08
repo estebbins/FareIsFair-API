@@ -3,6 +3,9 @@ from django.contrib.auth import get_user_model
 from . import User
 import uuid
 
+class Player(models.Model):
+    
+
 class GameSession(models.Model):
     # This field is toggeled to True when the game is in progress ONLY
     is_active = models.BooleanField(default=False)
@@ -18,7 +21,7 @@ class GameSession(models.Model):
     # questions = models.ManyToManyField(Question)
     # ! Responses join - not sure if necessary
 
-    #### Player Data####
+    #### Player Data ####
     host = models.ForeignKey(
         get_user_model(),
         on_delete=models.SET_NULL
