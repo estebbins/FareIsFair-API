@@ -3,8 +3,7 @@ from django.contrib.auth import get_user_model
 from . import User
 import uuid
 
-class Player(models.Model):
-    
+
 
 class GameSession(models.Model):
     # This field is toggeled to True when the game is in progress ONLY
@@ -21,33 +20,38 @@ class GameSession(models.Model):
     # questions = models.ManyToManyField(Question)
     # ! Responses join - not sure if necessary
 
+    players = models.ManyToManyField(get_user_model(), through='Player')
+
     #### Player Data ####
-    host = models.ForeignKey(
-        get_user_model(),
-        on_delete=models.SET_NULL
-        # Don't want to delete games when users get deleted because they could be in other accounts
-        #on_delete=models.CASCADE
-    )
-    player_one = models.ForeignKey(
-        # Do I need anything else here?
-        User,
-        on_delete=models.SET_NULL
-    )
-    player_two = models.ForeignKey(#
-        # Do I need anything else here?
-        User,
-        on_delete=models.SET_NULL
-    )
-    player_three = models.ForeignKey(
-        # Do I need anything else here?
-        User,
-        on_delete=models.SET_NULL
-    )
+    # host = models.ForeignKey(
+    #     get_user_model(),
+    #     on_delete=models.SET_NULL,
+    #     related_name='host'
+    #     # Don't want to delete games when users get deleted because they could be in other accounts
+    #     #on_delete=models.CASCADE
+    # )
+    # player_one = models.ForeignKey(
+    #     # Do I need anything else here?
+    #     User,
+    #     on_delete=models.SET_NULL,
+    #     related_name='player_one'
+    # )
+    # player_two = models.ForeignKey(#
+    #     # Do I need anything else here?
+    #     User,
+    #     on_delete=models.SET_NULL,
+    #         related_name='player_one'
+    # )
+    # player_three = models.ForeignKey(
+    #     # Do I need anything else here?
+    #     User,
+    #     on_delete=models.SET_NULL
+    # )
     # Fields to hold scores
-    host_score = models.IntegerField()
-    player_one_score = models.IntegerField()
-    player_two_score = models.IntegerField()
-    player_three_score = models.IntegerField()
+    # host_score = models.IntegerField()
+    # player_one_score = models.IntegerField()
+    # player_two_score = models.IntegerField()
+    # player_three_score = models.IntegerField()
 
     #### Game Data ####
     # Overall Game Result
@@ -62,11 +66,11 @@ class GameSession(models.Model):
         choices=GAME_RESULT_CHOICES, 
         default='pending'
     )
-    winner = models.ForeignKey(
-        # How do I plug in the user here?
-        get_user_model(),
-        on_delete=models.SET_NULL
-    )
+    # winner = models.ForeignKey(
+    #     # How do I plug in the user here?
+    #     get_user_model(),
+    #     on_delete=models.SET_NULL
+    # )
     # Date the game was created (not editable, set upon creation of object)
     created_date = models.DateField(auto_now=False, auto_now_add=True)
     # Date the game was completed (will be set at the end of the game)
@@ -96,3 +100,16 @@ class GameSession(models.Model):
 #         'ripe': self.ripe,
 #         'color': self.color
 #     }
+
+class Player(models.Model):
+    player = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL)
+    game = models.ForeignKey(GameSession, on_delete=models.CASCADE)
+    ROLE_CHOICES = (
+        ('h', 'Host'),
+        ('p1', 'Player One'),
+        ('p1', 'Player Two'),
+        ('p1', 'Player Three'),
+    )
+    role = models.CharField(max_length=2, choices=ROLE_CHOICES)
+    score = models.IntegerField(default=0)
+    winner = models.BooleanField(null=True)
