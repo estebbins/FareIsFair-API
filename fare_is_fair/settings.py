@@ -29,6 +29,8 @@ if os.getenv('ENV') == 'development':
   }
   # Set debug to true
   DEBUG = True
+
+  CORS_ALLOW_CREDENTIALS = True
   # Only allow locally running client at port 3000 for CORS
   CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
 else:
@@ -37,6 +39,8 @@ else:
   DB = dj_database_url.config()
   # Set debug to false
   DEBUG = False
+
+  CORS_ALLOW_CREDENTIALS = True
   # Only allow the `CLIENT_ORIGIN` for CORS
   CORS_ORIGIN_WHITELIST = [
     os.getenv('CLIENT_ORIGIN')
@@ -122,7 +126,6 @@ WSGI_APPLICATION = 'fare_is_fair.wsgi.application'
 # These can be overridden on individual views
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        # 'rest_framework.authentication.TokenAuthentication'
         'rest_framework.authentication.SessionAuthentication'
     ],
     'DEFAULT_PERMISSION_CLASSES': [
