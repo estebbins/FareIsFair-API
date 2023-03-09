@@ -30,14 +30,17 @@ class SignUp(generics.CreateAPIView):
         if user.is_valid():
             # Actually create the user using the UserSerializer (the `create` method defined there)
             created_user = UserSerializer(data=user.data)
-
+            print('created_user', created_user)
             if created_user.is_valid():
+
                 # Save the user and send back a response!
                 created_user.save()
                 return Response({ 'user': created_user.data }, status=status.HTTP_201_CREATED)
             else:
+                print('created_usererror', created_user.errors)
                 return Response(created_user.errors, status=status.HTTP_400_BAD_REQUEST)
         else:
+            print('usererror', user.errors)
             return Response(user.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class SignIn(generics.CreateAPIView):

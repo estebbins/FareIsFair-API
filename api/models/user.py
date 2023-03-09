@@ -9,18 +9,18 @@ class UserManager(BaseUserManager):
     # The create_user method is passed:
     # self:      All methods in Python receive the class as the first argument
     # email:     Because we want to be able to log users in with email
-    #            instead of username (Django's default behavior)
+    #            instead of screenname (Django's default behavior)
     # password:  The password has a default of None for validation purposes.
     #            This ensures the proper error is thrown if a password is
     #            not provided.
     # **extra_fields:  Just in case there are extra arguments passed.
-    def create_user(self, email, username, phone_number, password=None, **extra_fields):
+    def create_user(self, email, screenname, phone_number, password=None, **extra_fields):
         """Create a new user profile"""
         # Add a custom validation error
         if not email:
             raise ValueError('User must have an email address')
-        if not username:
-            raise ValueError('User must have a username address')
+        if not screenname:
+            raise ValueError('User must have a screenname address')
         if not phone_number:
             raise ValueError('User must have a phone number')
         # Create a user from the UserModel
@@ -29,8 +29,8 @@ class UserManager(BaseUserManager):
         # We'll also unwind the extra fields.  Remember that two asterisk (**)
         # in Python refers to the extra keyword arguments that are passed into
         # a function (meaning these are key=value pairs).
-        user = self.model(email=self.normalize_email(email), **extra_fields)
-
+        print('at create_user in model', email, screenname, phone_number, password)
+        user = self.model(email=self.normalize_email(email), screenname=screenname, phone_number=phone_number, **extra_fields)
         # Use the set_password method to hash the password
         user.set_password(password)
         # Call save to save the user to the database
@@ -39,13 +39,13 @@ class UserManager(BaseUserManager):
         # Always return the user!
         return user
 
-    def create_superuser(self, email, username, phone_number, password):
+    def create_superuser(self, email, screenname, phone_number, password):
         """Create and save a new superuser with given details"""
-
+        print('at create_user in model', email, screenname, phone_number, password)
         # Use the custom create_user method above to create
         # the user.
-        user = self.create_user(email, username, phone_number, password)
-
+        user = self.create_user(email, screenname, phone_number, password)
+        print('user at creatsuperuser', user)
         # Add the required is_superuser and is_staff properties
         # which must be set to True for superusers
         user.is_superuser = True
@@ -62,7 +62,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     # As with any Django models, we need to define the fields
     # for the model with the type and options:
     email = models.EmailField(max_length=255, unique=True)
-    username = models.CharField(max_length=25, unique=True)
+    screenname = models.CharField(max_length=25, unique=True)
     phone_number = models.CharField(max_length=12)
     # name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
@@ -78,7 +78,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     # This doesn't mean the field is required (that's defined above in the field options)
     # This refers to the fields that are prompted for when creating a superuser.
     # https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#django.contrib.auth.models.CustomUser.REQUIRED_FIELDS
-    REQUIRED_FIELDS = ['username', 'phone_number']
+    REQUIRED_FIELDS = ['screenname', 'phone_number']
 
     # Standard Python: We'll create a string representation so when
     # the class is output we'll get something meaningful.

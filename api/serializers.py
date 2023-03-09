@@ -43,7 +43,7 @@ class UserSerializer(serializers.ModelSerializer):
         # get_user_model will get the user model (this is required)
         # https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#referencing-the-user-model
         model = get_user_model()
-        fields = ('id', 'email', 'password')
+        fields = ('id', 'email', 'screenname', 'phone_number', 'password')
         extra_kwargs = { 'password': { 'write_only': True, 'min_length': 5 } }
 
     # This create method will be used for model creation
@@ -53,7 +53,7 @@ class UserSerializer(serializers.ModelSerializer):
 class UserRegisterSerializer(serializers.Serializer):
     # Require email, password, and password_confirmation for sign up
     email = serializers.CharField(max_length=300, required=True)
-    username = serializers.CharField(max_length=300, required=True)
+    screenname = serializers.CharField(max_length=300, required=True)
     phone_number = serializers.CharField(max_length=12, required=True)
     password = serializers.CharField(required=True)
     password_confirmation = serializers.CharField(required=True, write_only=True)
