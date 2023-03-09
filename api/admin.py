@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from .models.user import User
-from .models.game_session import GameSession, Player
+from .models.game_session import GameSession, Player, Question
 # from .models.mango import Mango
 
 class UserAdmin(BaseUserAdmin):
@@ -42,4 +42,5 @@ class UserAdmin(BaseUserAdmin):
 admin.site.register(User, UserAdmin)
 admin.site.register(GameSession)
 admin.site.register(Player)
+admin.site.register(Question)
 # admin.site.register(Mango)

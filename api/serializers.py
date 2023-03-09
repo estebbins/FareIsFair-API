@@ -18,6 +18,7 @@ class GameSessionSerializer(serializers.ModelSerializer):
             'is_active', 
             'session_code', 
             'session_password',
+            'questions',
             'players',
             'game_result',
             'created_date',

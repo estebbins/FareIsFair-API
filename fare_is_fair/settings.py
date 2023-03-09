@@ -20,31 +20,35 @@ load_dotenv(find_dotenv())
 
 # Determine if we are on local or production
 if os.getenv('ENV') == 'development':
-  # If we are on development, use the `DB_NAME_DEV` value
-  # from the .env file as the database name
-  DB_NAME = os.getenv('DB_NAME_DEV')
-  DB = {
-      'ENGINE': 'django.db.backends.postgresql',
-      'NAME': DB_NAME,
-  }
-  # Set debug to true
-  DEBUG = True
+    # If we are on development, use the `DB_NAME_DEV` value
+    # from the .env file as the database name
+    DB_NAME = os.getenv('DB_NAME_DEV')
+    DB = {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DB_NAME,
+    }
+    # Set debug to true
+    DEBUG = True
 
-  CORS_ALLOW_CREDENTIALS = True
-  # Only allow locally running client at port 3000 for CORS
-  CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
+    CORS_ALLOW_CREDENTIALS = True
+    # Only allow locally running client at port 3000 for CORS
+    CORS_ALLOWED_ORIGINS = [
+        "http://localhost:3000"
+    ]
+    CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
+    CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
 else:
-  # If we are on production, use the dj_database_url package
-  # to locate the database based on Heroku setup
-  DB = dj_database_url.config()
-  # Set debug to false
-  DEBUG = False
+    # If we are on production, use the dj_database_url package
+    # to locate the database based on Heroku setup
+    DB = dj_database_url.config()
+    # Set debug to false
+    DEBUG = False
 
-  CORS_ALLOW_CREDENTIALS = True
-  # Only allow the `CLIENT_ORIGIN` for CORS
-  CORS_ORIGIN_WHITELIST = [
-    os.getenv('CLIENT_ORIGIN')
-  ]
+    CORS_ALLOW_CREDENTIALS = True
+    # Only allow the `CLIENT_ORIGIN` for CORS
+    CORS_ORIGIN_WHITELIST = [
+        os.getenv('CLIENT_ORIGIN')
+    ]
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -179,7 +183,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Use the custom user model as the auth user for the admin view
 AUTH_USER_MODEL = 'api.User'
 
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SAMESITE = 'None'
-SESSION_COOKIE_SAMESITE = 'None'
+# CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SAMESITE = 'None'
+# SESSION_COOKIE_SAMESITE = 'None'

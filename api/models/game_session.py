@@ -3,6 +3,15 @@ from django.contrib.auth import get_user_model
 from . import User
 import uuid
 
+class Question(models.Model):
+    prompt = models.CharField(max_length=1000)
+    additional = models.CharField(max_length=1000)
+    image = models.CharField(max_length=1000)
+    answer = models.CharField(max_length=1000)
+
+    def __str__(self):
+        # This must return a string
+        return f"{self.prompt}"
 
 
 class GameSession(models.Model):
@@ -20,7 +29,7 @@ class GameSession(models.Model):
     # Password set by host to log into game
     session_password = models.CharField(max_length=8)
     # ! Questions join - Figure out limiting to specific #
-    # questions = models.ManyToManyField(Question)
+    questions = models.ManyToManyField(Question)
     # ! Responses join - not sure if necessary
 
     # Players & Player Data 
@@ -49,6 +58,8 @@ class GameSession(models.Model):
     def __str__(self):
         # This must return a string
         return f"The game code is named '{self.session_code}'"
+    
+
 
 
 
@@ -97,4 +108,9 @@ class Player(models.Model):
     score = models.IntegerField(default=0)
     # Track if the player won the game (true) or lost(false) or game has not concluded (null)
     winner = models.BooleanField(null=True)
+
+
+
+    
+
 
