@@ -53,6 +53,8 @@ class UserSerializer(serializers.ModelSerializer):
 class UserRegisterSerializer(serializers.Serializer):
     # Require email, password, and password_confirmation for sign up
     email = serializers.CharField(max_length=300, required=True)
+    username = serializers.CharField(max_length=300, required=True)
+    phone_number = serializers.CharField(max_length=12, required=True)
     password = serializers.CharField(required=True)
     password_confirmation = serializers.CharField(required=True, write_only=True)
 

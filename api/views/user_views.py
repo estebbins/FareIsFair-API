@@ -19,7 +19,13 @@ class SignUp(generics.CreateAPIView):
 
     def post(self, request):
         # Pass the request data to the serializer to validate it
+        print('request', request.data)
+        phone_number = '1' + request.data['credentials']['phone_number']
+        request.data['credentials']['phone_number'] = phone_number
         user = UserRegisterSerializer(data=request.data['credentials'])
+
+
+        print('user', user)
         # If that data is in the correct format...
         if user.is_valid():
             # Actually create the user using the UserSerializer (the `create` method defined there)
@@ -73,7 +79,7 @@ class SignIn(generics.CreateAPIView):
 class SignOut(generics.DestroyAPIView):
     def delete(self, request):
         # Remove this token from the user
-        request.user.delete_token()
+        # request.user.delete_token()
         # Logout will remove all session data
         logout(request)
         return Response(status=status.HTTP_204_NO_CONTENT)
