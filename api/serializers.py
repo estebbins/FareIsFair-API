@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 # from .models.mango import Mango
 from .models.user import User
-from .models.game_session import GameSession, Player
+from .models.game_session import GameSession, Player, Question
 
 # class MangoSerializer(serializers.ModelSerializer):
 #     class Meta:
@@ -24,6 +24,44 @@ class GameSessionSerializer(serializers.ModelSerializer):
             'created_date',
             'played_date'
         )
+
+
+class QuestionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Question
+        fields = (
+            'id', 
+            'prompt',
+            'additional',
+            'answer'
+        )
+
+class PlayerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Player
+        fields = (
+            'id', 
+            'player',
+            'game',
+            'role',
+            'score', 
+            'winner'
+        )
+
+class GameSessionCreateEditSerializer(serializers.Serializer):
+    is_active = serializers.BooleanField(required=True)
+    session_code = serializers.CharField(max_length=6, required=False)
+    session_password = serializers.CharField(max_length=10, required=True)
+    questions = QuestionSerializer(many=True, required=False)
+    players = PlayerSerializer(many=True, required=False)
+    game_result = serializers.CharField(max_length=11, required=False)
+    created_date = serializers.DateField(required=False)
+    played_date = serializers.DateField(required=False)
+
+    def create(self, validated_data):
+        return GameSession.objects.create(**validated_data)
+
+
 
 class PlayerSerializer(serializers.ModelSerializer):
     class Meta:

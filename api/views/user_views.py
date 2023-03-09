@@ -54,8 +54,8 @@ class SignIn(generics.CreateAPIView):
 
     def post(self, request):
         creds = request.data['credentials']
-        print(request.data)
-        print(creds)
+        # print(request.data)
+        # print(creds)
         # We can pass our email and password along with the request to the
         # `authenticate` method. If we had used the default user, we would need
         # to send the `username` instead of `email`.
@@ -71,6 +71,8 @@ class SignIn(generics.CreateAPIView):
                     'user': {
                         'id': user.id,
                         'email': user.email,
+                        'screenname': user.screenname,
+                        'phone_number': user.phone_number
                         # 'token': user.get_auth_token()
                     }
                 })
