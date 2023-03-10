@@ -113,3 +113,15 @@ class ChangePasswordSerializer(serializers.Serializer):
     model = get_user_model()
     old = serializers.CharField(required=True)
     new = serializers.CharField(required=True)
+
+
+class PlayerAddSerializer(serializers.Serializer):
+    id = serializers.IntegerField(label='ID', read_only=True)
+    game = GameSessionSerializer()
+    player = UserSerializer()
+    role = serializers.CharField(max_length=2, required=True)
+    score = serializers.IntegerField(required=False)
+    winner = serializers.BooleanField(required=False)
+
+    def create(self, validated_data):
+        return Player.objects.create(**validated_data)
