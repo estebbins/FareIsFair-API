@@ -29,11 +29,11 @@ class GameSession(models.Model):
     # Password set by host to log into game
     session_password = models.CharField(max_length=8)
     # ! Questions join - Figure out limiting to specific #
-    questions = models.ManyToManyField(Question)
+    questions = models.ManyToManyField(Question, blank=True)
     # ! Responses join - not sure if necessary
 
     # Players & Player Data 
-    players = models.ManyToManyField(get_user_model(), through='Player')
+    players = models.ManyToManyField(get_user_model(), through='Player', blank=True)
 
     #### Game Data ####
     # Overall Game Result
@@ -92,8 +92,8 @@ class GameSession(models.Model):
 ### Connection between Users & Game Sessions ###
 class Player(models.Model):
     # Grab the user & game session
-    player = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True)
-    game = models.ForeignKey(GameSession, on_delete=models.CASCADE)
+    player = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, blank=True)
+    game = models.ForeignKey(GameSession, on_delete=models.CASCADE, blank=True)
     # Set up role options for the players
     ROLE_CHOICES = (
         ('h', 'Host'),
@@ -109,7 +109,9 @@ class Player(models.Model):
     # Track if the player won the game (true) or lost(false) or game has not concluded (null)
     winner = models.BooleanField(null=True)
 
-
+    def __str__(self):
+        # This must return a string
+        return f"This player is the '{self.role}'"
 
     
 

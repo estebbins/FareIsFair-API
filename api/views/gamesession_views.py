@@ -10,7 +10,7 @@ from django.contrib.auth import get_user, authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 import random
 
-from ..serializers import UserSerializer, GameSessionSerializer, GameSessionCreateEditSerializer, PlayerAddSerializer
+from ..serializers import UserSerializer, GameSessionSerializer, GameSessionCreateEditSerializer, PlayerSerializer, PlayerAddSerializer, PlayerSerializer
 from ..models.user import User
 from ..models.game_session import GameSession, Player, Question
 
@@ -21,7 +21,8 @@ class GameSessions(generics.ListAPIView):
     def get(self, request):
         """Index request"""
         # Get all the games
-        gamesessions = GameSession.objects.filter(players__in=[request.user.id])
+        gamesessions = GameSession.objects.filter(players__in=[request.user.id]).distinct()
+        print('gamesession', gamesessions)
         # Run the data through the serializer
         # print('gamesession(gamesessions)', GameSessionSerializer(gamesessions, many=True))
         data = GameSessionSerializer(gamesessions, many=True).data
@@ -50,6 +51,10 @@ class GameSessionCreate(generics.CreateAPIView):
 
                 # Save the user and send back a response!
                 created_gamesession.save()
+                game = GameSession.objects.get(id=created_gamesession.data['id'])
+                new_player = Player.objects.create(player=request.user, role='h', game=game)
+                print('newplayer', new_player)
+                print('created game session!!!!!', created_gamesession.data)
                 return Response({ 'gamesession': created_gamesession.data }, status=status.HTTP_201_CREATED)
             else:
                 print('created_gamesession', created_gamesession.errors)
@@ -97,55 +102,72 @@ def assoc_players(request):
     gamesession = GameSession.objects.get(id=request.data['gamesession_id'])
     print('gamesession', gamesession.__dict__)
     # grab the host
-    host = User.objects.get(id=request.data['players']['host']['user']['id'])
-    host_object =  UserSerializer(data=host)
-    host_player = PlayerAddSerializer({'player': host_object}, {'game': GameSessionSerializer(gamesession.__dict__)})
-    if host_player.is_valid():
-        print('it is valid!', host_player)
-        created_host_player = PlayerAddSerializer(data=host_object)
-        if created_host_player.is_valid():
-            created_host_player.save()
-            return Response()
-        else:
-            print('created_hostplayer errors', created_host_player.errors)
-            return Response(created_host_player.errors, status=status.HTTP_400_BAD_REQUEST)
-    else:
-        print('host_player error', host_player.errors)
-        return Response(host_player.errors, status=status.HTTP_400_BAD_REQUEST)
+    # host = User.objects.get(id=request.data['players']['host']['user']['id'])
+    # host_player = Player.objects.create(role='h', game=gamesession, player=host)
+    # print('hostplayer', host_player.__dict__)
+    # host_object =  UserSerializer(data=host)
+    # host_object = {
+    #     'data': {
+    #         # 'player': host.__dict__,
+    #         # 'game': gamesession.__dict__,
+    #         'role': 'h'
+    #     }
+    # }
+    # print('host_object', host_object)
+    # host_player = PlayerAddSerializer(data=host_object['data'])
+    # if host_player.is_valid():
+    #     print('it is valid!', host_player)
+    #     created_host_player = PlayerSerializer(data=host_player.data)
+    #     print('created host player', created_host_player)
+    #     if created_host_player.is_valid():
+    #         print('created host playerdata', created_host_player.validated_data)
+    #         # created_host_player.data.add(gamesession)
+    #         # created_host_player.add(host)
+    #         print('created host data', created_host_player)
+    #         created_host_player.save()
+    #         # print('created host data', created_host_player)
+    #         return Response()
+    #     else:
+    #         print('created_hostplayer errors', created_host_player.errors)
+    #         return Response(created_host_player.errors, status=status.HTTP_400_BAD_REQUEST)
+    # else:
+    #     print('host_player error', host_player.errors)
+    #     return Response(host_player.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    host_to_print = Player.objects.get(game_id=gamesession.id)
-    print('hosttoprint', host_to_print) 
+    # host_to_print = Player.objects.get(game_id=gamesession.id)
+    # print('hosttoprint', host_to_print) 
 
     # If there's data in player_one, then grab the user associated with the email
     if request.data['players']['player_one']:
         player_one = User.objects.get(email=request.data['players']['player_one'])
         print('playerone', player_one)
-        PlayerAddSerializer(player=player_one, game=gamesession, role='p1')
+        Player.objects.create(role='p1', game=gamesession, player=player_one)
+
     
-    player_to_print = Player.objects.get(game=gamesession)
-    print('playertoprint', player_to_print) 
+    # player_to_print = Player.objects.get(game=gamesession)
+    # print('playertoprint', player_to_print) 
 
     # If theres data in player_two, but not player one, make that player one
     if request.data['players']['player_two'] and not player_one:
         player_one = User.objects.get(email=request.data['players']['player_two'])
-        Player(player=player_one, game=gamesession, role='p1')
+        Player.objects.create(role='p1', game=gamesession, player=player_one)
        
     #else if there's a player one, then make player two, player two
     elif request.data['players']['player_two']:
         player_two = User.objects.get(email=request.data['players']['player_two'])
-        Player(player=player_two, game=gamesession, role='p2')
+        Player.objects.create(player=player_two, game=gamesession, role='p2')
 
     #If there's data in player_three but not one or two, make them player one
     if request.data['players']['player_three'] and not player_one and not player_two:
         player_one = User.objects.get(email=request.data['players']['player_three'])
-        Player(player=player_one, game=gamesession, role='p1')
+        Player.objects.create(role='p1', game=gamesession, player=player_one)
     #If there's data in player_three and there's not already a player two, make them 2
     elif request.data['players']['player_three'] and not player_two:
         player_two = User.objects.get(email=request.data['players']['player_three'])
-        Player(player=player_two, game=gamesession, role='p2')
+        Player.objects.create(player=player_two, game=gamesession, role='p2')
     elif request.data['players']['player_three']:
         player_three = User.objects.get(email=request.data['players']['player_three'])
-        Player(player=player_three, game=gamesession, role='p3')
+        Player.objects.create(player=player_three, game=gamesession, role='p3')
 
     # Serialize the game session
     data = GameSessionSerializer(gamesession).data

@@ -117,8 +117,8 @@ class ChangePasswordSerializer(serializers.Serializer):
 
 class PlayerAddSerializer(serializers.Serializer):
     id = serializers.IntegerField(label='ID', read_only=True)
-    game = GameSessionSerializer()
-    player = UserSerializer()
+    game = GameSessionSerializer(required=False)
+    player = UserSerializer(required=False)
     role = serializers.CharField(max_length=2, required=True)
     score = serializers.IntegerField(required=False)
     winner = serializers.BooleanField(required=False)
