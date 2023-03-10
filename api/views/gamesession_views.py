@@ -3,10 +3,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.authentication import SessionAuthentication
 from rest_framework import status, generics
-from rest_framework.decorators import api_view, renderer_classes
+from rest_framework.decorators import api_view, renderer_classes, permission_classes
 from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
 from django.shortcuts import get_object_or_404
-from django.contrib.auth import get_user, authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 import random
 
@@ -60,8 +59,21 @@ class GameSessionCreate(generics.CreateAPIView):
 
 # https://stackoverflow.com/questions/55416471/how-to-resolve-assertionerror-accepted-renderer-not-set-on-response-in-django
 
+@api_view(('POST',))
+@permission_classes(())
+@renderer_classes((TemplateHTMLRenderer, JSONRenderer))
+@csrf_exempt
+def sms(request):
+    # sms <QueryDict: {'ToCountry': ['US'], 'ToState': [''], 'SmsMessageSid': ['SM3a74a337c65cce82f0985c7a7870ee33'], 'NumMedia': ['0'], 'ToCity': [''], 'FromZip': ['37217'], 'SmsSid': ['SM3a74a337c65cce82f0985c7a7870ee33'], 'FromState': ['TN'], 'SmsStatus': ['received'], 'FromCity': ['NASHVILLE'], 'Body': ['Test'], 'FromCountry': ['US'], 'To': ['+18442384011'], 'ToZip': [''], 'NumSegments': ['1'], 'MessageSid': ['SM3a74a337c65cce82f0985c7a7870ee33'], 'AccountSid': ['ACc113b237db9aa6a54522809d744a21f0'], 'From': ['+16155940171'], 'ApiVersion': ['2010-04-01']}>
+
+    authentication_classes=()
+    permission_classes=()
+    print('sms', request.data)
+    return Response({ 'sms': request.data })
+
 
 @api_view(('PATCH',))
+
 @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
 # @csrf_exempt
 def assoc_questions(request, gamesession_id):

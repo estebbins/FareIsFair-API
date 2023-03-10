@@ -33,7 +33,7 @@ if os.getenv('ENV') == 'development':
     CORS_ALLOW_CREDENTIALS = True
     # Only allow locally running client at port 3000 for CORS
     CORS_ALLOWED_ORIGINS = [
-        "http://localhost:3000"
+        "http://localhost:3000",
     ]
     CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
     CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
@@ -158,7 +158,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Allow all host headers
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', '.ngrok.io']
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
