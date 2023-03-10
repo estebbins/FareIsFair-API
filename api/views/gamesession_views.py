@@ -27,7 +27,9 @@ class GameSessions(generics.ListAPIView):
         # print('gamesession(gamesessions)', GameSessionSerializer(gamesessions, many=True))
         data = GameSessionSerializer(gamesessions, many=True).data
         # print('gamesessionview data', data)
-        return Response({ 'gamesessions': data })
+        players = Player.objects.filter(game__in=gamesessions).distinct()
+        player_data = PlayerSerializer(players, many=True).data
+        return Response({ 'gamesessions': data, 'playerdata': player_data })
     
 class GameSessionCreate(generics.CreateAPIView):
     authentication_classes=[ SessionAuthentication ]
