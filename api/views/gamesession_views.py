@@ -43,6 +43,7 @@ class GameSessionCreate(generics.CreateAPIView):
         print('gamesession in create', gamesession)
         # If that data is in the correct format...
         if gamesession.is_valid():
+            # ! probably change this serializer!
             created_gamesession = GameSessionCreateEditSerializer(data=gamesession.data)
             print('created_gamesession', created_gamesession)
             if created_gamesession.is_valid():
@@ -63,7 +64,7 @@ class GameSessionCreate(generics.CreateAPIView):
 @api_view(('PATCH',))
 @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
 # @csrf_exempt
-def assoc_questions(self, gamesession_id):
+def assoc_questions(request, gamesession_id):
     """Add questions to game session array when game is started"""
     authentication_classes=[ SessionAuthentication ]
     permission_classes=(IsAuthenticated,)
@@ -82,3 +83,39 @@ def assoc_questions(self, gamesession_id):
     data = GameSessionSerializer(gamesession).data
     # Send it back to the client
     return Response({ 'gamesession': data })
+
+@api_view(('PATCH',))
+@renderer_classes((TemplateHTMLRenderer, JSONRenderer))
+# @csrf_exempt
+def assoc_players(request):
+    """Add questions to game session array when game is started"""
+    authentication_classes=[ SessionAuthentication ]
+    permission_classes=(IsAuthenticated,)
+    print('assocplayer req', request)
+    print('players', request.data)
+    #Grab the game session
+    gamesession = GameSession.objects.get(id=request.data['gamesession_id'])
+    # grab the player
+    # player = get_user_model().objects.get(id=player_id)
+    # If the game already has questions, don't add them
+    # If the game does not have questions, add them in one by one
+    # gamesession.players.add(player)
+    # Serialize the game session
+    data = GameSessionSerializer(gamesession).data
+    # Send it back to the client
+    return Response({ 'gamesession': data })
+
+@api_view(('GET',))
+@renderer_classes((TemplateHTMLRenderer, JSONRenderer))
+def find_players(request, email):
+    print('filter', email)
+    users = User.objects.filter(email__startswith=email)
+
+    data = UserSerializer(users, many=True).data
+
+    return Response({ 'users': data })
+
+
+
+
+

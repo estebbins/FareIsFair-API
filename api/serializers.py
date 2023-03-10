@@ -49,6 +49,7 @@ class PlayerSerializer(serializers.ModelSerializer):
         )
 
 class GameSessionCreateEditSerializer(serializers.Serializer):
+    id = serializers.IntegerField(label='ID', read_only=True)
     is_active = serializers.BooleanField(required=True)
     session_code = serializers.CharField(max_length=6, required=False)
     session_password = serializers.CharField(max_length=10, required=True)
