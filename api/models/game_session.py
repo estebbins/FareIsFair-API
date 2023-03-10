@@ -109,6 +109,38 @@ class Player(models.Model):
     # Track if the player won the game (true) or lost(false) or game has not concluded (null)
     winner = models.BooleanField(null=True)
 
+    def __str__(self):
+        # This must return a string
+        return f"{self.player} is {self.role}"
+
+
+# sms <QueryDict: {'ToCountry': ['US'], 'ToState': [''], 'SmsMessageSid': ['SM3a74a337c65cce82f0985c7a7870ee33'], 'NumMedia': ['0'], 'ToCity': [''], 'FromZip': ['37217'], 'SmsSid': ['SM3a74a337c65cce82f0985c7a7870ee33'], 'FromState': ['TN'], 'SmsStatus': ['received'], 'FromCity': ['NASHVILLE'], 'Body': ['Test'], 'FromCountry': ['US'], 'To': ['+18442384011'], 'ToZip': [''], 'NumSegments': ['1'], 'MessageSid': ['SM3a74a337c65cce82f0985c7a7870ee33'], 'AccountSid': ['ACc113b237db9aa6a54522809d744a21f0'], 'From': ['+16155940171'], 'ApiVersion': ['2010-04-01']}>
+
+class Response(models.Model):
+    sms_sid = models.CharField(max_length=100)
+    response = models.CharField(max_length=1000)
+    to = models.CharField(max_length=100)
+    from_num = models.CharField(max_length=100)
+    msg_sid = models.CharField(max_length=100)
+    question = models.ForeignKey(Question)
+    player = models.ForeignKey(User, on_delete=models.SET_NULL)
+
+    def __str__(self):
+        # This must return a string
+        return f"{self.player} is {self.response}"
+    
+    def check_answer(self):
+        self.response = int(self.response)
+        correct_answer = int(self.question.answer)
+        if self.response > correct_answer:
+            return False
+        return True
+    
+    def check_active(self):
+        if self.player.game.is_active:
+            if self.player.player.phone_number == self.from_num:
+                return True
+
 
 
     
