@@ -116,7 +116,7 @@ class Player(models.Model):
         # This must return a string
         return f"This player is the '{self.role}'"
 
-class Response(models.Model):
+class Player_Response(models.Model):
     sms_sid = models.CharField(max_length=100)
     response = models.CharField(max_length=1000)
     to = models.CharField(max_length=100)
@@ -124,6 +124,8 @@ class Response(models.Model):
     msg_sid = models.CharField(max_length=100)
     question = models.ForeignKey(Question, on_delete=models.SET_NULL, null=True)
     player = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    date_time = models.DateTimeField(auto_now_add=True)
+    game = models.ForeignKey(GameSession, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         # This must return a string

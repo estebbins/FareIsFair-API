@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 # from .models.mango import Mango
 from .models.user import User
-from .models.game_session import GameSession, Player, Question
+from .models.game_session import GameSession, Player, Question, Player_Response
 
 # class MangoSerializer(serializers.ModelSerializer):
 #     class Meta:
@@ -46,6 +46,21 @@ class PlayerSerializer(serializers.ModelSerializer):
             'role',
             'score', 
             'winner'
+        )
+
+class PlayerResponseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Player_Response
+        fields = (
+            'id',
+            'game',
+            'player',
+            'question',
+            'sms_sid',
+            'response',
+            'to',
+            'from_num',
+            'msg_sid'
         )
 
 class GameSessionCreateEditSerializer(serializers.Serializer):
@@ -125,3 +140,19 @@ class PlayerAddSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         return Player.objects.create(**validated_data)
+    
+class PlayerAddResponseSerializer(serializers.Serializer):
+    id = serializers.IntegerField(label='ID', read_only=True)
+    game = GameSessionSerializer(required=False)
+    player = UserSerializer(required=False)
+    question = QuestionSerializer(required=False)
+    sms_sid = serializers.CharField(max_length=100, required=False)
+    response = serializers.CharField(max_length=1000, required=False)
+    to = serializers.CharField(max_length=100, required=False)
+    from_num = serializers.CharField(max_length=100, required=False)
+    msg_sid = serializers.CharField(max_length=100, required=False)
+
+    def create(self, validated_data):
+        return Player_Response.objects.create(**validated_data)
+
+

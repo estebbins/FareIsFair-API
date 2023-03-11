@@ -12,7 +12,7 @@ import random
 
 from ..serializers import UserSerializer, GameSessionSerializer, GameSessionCreateEditSerializer, PlayerSerializer, PlayerAddSerializer, PlayerSerializer
 from ..models.user import User
-from ..models.game_session import GameSession, Player, Question
+from ..models.game_session import GameSession, Player, Question, Player_Response
 
 class GameSessions(generics.ListAPIView):
     authentication_classes=[ SessionAuthentication ]
@@ -187,16 +187,60 @@ def find_players(request, email):
 
 @api_view(('POST',))
 @permission_classes(())
-@renderer_classes((TemplateHTMLRenderer, JSONRenderer))
+@renderer_classes((JSONRenderer,))
 @csrf_exempt
 def sms(request):
     #Example
-    # sms <QueryDict: {'ToCountry': ['US'], 'ToState': [''], 'SmsMessageSid': ['SM3a74a337c65cce82f0985c7a7870ee33'], 'NumMedia': ['0'], 'ToCity': [''], 'FromZip': ['37217'], 'SmsSid': ['SM3a74a337c65cce82f0985c7a7870ee33'], 'FromState': ['TN'], 'SmsStatus': ['received'], 'FromCity': ['NASHVILLE'], 'Body': ['Test'], 'FromCountry': ['US'], 'To': ['+15555555555'], 'ToZip': [''], 'NumSegments': ['1'], 'MessageSid': ['SM3a74a337c65cce82f0985c7a7870ee33'], 'AccountSid': ['ACc113b237db9aa6a54522809d744a21f0'], 'From': ['+15555555555'], 'ApiVersion': ['2010-04-01']}>
-
+    # sms 
+    # 
+    # data = <QueryDict: {'ToCountry': ['US'], 'ToState': [''], 'SmsMessageSid': ['SM3a74a337c65cce82f0985c7a7870ee33'], 'NumMedia': ['0'], 'ToCity': [''], 'FromZip': ['37217'], 'SmsSid': ['SM3a74a337c65cce82f0985c7a7870ee33'], 'FromState': ['TN'], 'SmsStatus': ['received'], 'FromCity': ['NASHVILLE'], 'Body': ['Test'], 'FromCountry': ['US'], 'To': ['+15555555555'], 'ToZip': [''], 'NumSegments': ['1'], 'MessageSid': ['SM3a74a337c65cce82f0985c7a7870ee33'], 'AccountSid': ['ACc113b237db9aa6a54522809d744a21f0'], 'From': ['+15555555555'], 'ApiVersion': ['2010-04-01']}>
+    
     authentication_classes=()
     permission_classes=()
-    print('sms', request.data)
-    return Response({ 'sms': request.data })
+    
+    # If sms not from US, send bad_request
+    if request.data['FromCountry'] not in 'US':
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+    # Try to find the player matching the phone number
+    try:
+        player = User.objects.get(phone_number=request.data['From'])
+    except User.DoesNotExist:
+        # Raise 400 error if user not found with a matching phone number
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+    
+    print('player in sms', player)
+
+    # Try to find an active game with that player
+    try:
+        active_game = GameSession.objects.get(is_active=True, players=player.id)
+    except GameSession.DoesNotExist:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+    print('game in sms', active_game)
+
+    try:
+        current_question = Question.objects.get(id=active_game.active_question_id)
+    except Question.DoesNotExist:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+    
+    print('question in sms', current_question)
+
+    created_player_response = Player_Response.objects.create(
+        sms_sid=request.data['SmsSid'], 
+        response=request.data['Body'],
+        to=request.data['To'],
+        from_num=request.data['From'],
+        msg_sid=request.data['MessageSid'],
+        question=current_question,
+        player=player,
+        game=active_game
+    )
+    created_player_response.save()
+    
+    print('created_player_response', created_player_response)
+
+    return Response(status=status.HTTP_201_CREATED)
 
 
 
