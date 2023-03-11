@@ -1,7 +1,7 @@
 from django.urls import path
 # from .views.mango_views import Mangos, MangoDetail
 from .views.user_views import SignUp, SignIn, SignOut, ChangePassword
-from .views.gamesession_views import GameSessions, assoc_questions, assoc_players, find_players, sms, GameSessionCreate, PlayerResponseIndex
+from .views.gamesession_views import GameSessions, assoc_questions, assoc_players, find_players, sms, QuestionDetail, PlayerResponseIndex, GameSessionCreate
 
 urlpatterns = [
   	# Restful routing
@@ -16,6 +16,9 @@ urlpatterns = [
     path('games/add_questions/<int:gamesession_id>/', assoc_questions, name='add_questions'),
     path('games/add_players/', assoc_players, name='add_players'),
     path('find_players/<str:email>', find_players, name='find_players'),
+    # URL for Twilio Webhook
     path('sms/', sms, name='sms'),
+    # URLs for Live Games
+    path('livegame/question/<int:question_id>/', QuestionDetail.as_view(), name='get_question'),
     path('livegame/<int:gamesession_id>/<int:question_id>/', PlayerResponseIndex.as_view(), name='get_responses')
 ]

@@ -10,7 +10,7 @@ from django.contrib.auth import get_user, authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 import random
 
-from ..serializers import UserSerializer, GameSessionSerializer, GameSessionCreateEditSerializer, PlayerSerializer, PlayerResponseSerializer, PlayerSerializer
+from ..serializers import UserSerializer, GameSessionSerializer, GameSessionCreateEditSerializer, PlayerSerializer, PlayerResponseSerializer, PlayerSerializer, QuestionSerializer
 from ..models.user import User
 from ..models.game_session import GameSession, Player, Question, PlayerResponse
 
@@ -256,11 +256,25 @@ class PlayerResponseIndex(generics.ListAPIView):
         """Index request"""
         # Get all the responses that match the game Id & the question Id
         responses = PlayerResponse.objects.filter(game=gamesession_id, question=question_id).distinct()
-        print('gamesession', responses)
+        print('Index Responses', responses)
         # Run the data through the serializer
         data = PlayerResponseSerializer(responses, many=True).data
         print('PlayerResponseIndex data', data)
         return Response({ 'player_responses': data })
 
+class QuestionDetail(generics.ListAPIView):
+    """View to return question detail"""
+    authentication_classes=[ SessionAuthentication ]
+    permission_classes=(IsAuthenticated,)
+    serializer_class = QuestionSerializer
 
+    def get(self, request, question_id):
+        """Detail request"""
+        # Get all the responses that match the game Id & the question Id
+        question = Question.objects.get(id=question_id)
+        print('Question Detail', question)
+        # Run the data through the serializer
+        data = QuestionSerializer(question).data
+        print('QuestionIndex data', data)
+        return Response({ 'question_detail': data })
 

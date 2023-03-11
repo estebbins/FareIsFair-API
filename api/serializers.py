@@ -33,6 +33,7 @@ class QuestionSerializer(serializers.ModelSerializer):
             'id', 
             'prompt',
             'additional',
+            'image',
             'answer'
         )
 
