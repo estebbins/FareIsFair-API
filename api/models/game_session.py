@@ -32,6 +32,7 @@ class GameSession(models.Model):
     questions = models.ManyToManyField(Question, blank=True)
     # ! Responses join - not sure if necessary
 
+    # https://www.youtube.com/watch?v=-HuTlmEVOgU 
     # Players & Player Data 
     players = models.ManyToManyField(get_user_model(), through='Player', blank=True)
 
@@ -53,6 +54,8 @@ class GameSession(models.Model):
     created_date = models.DateField(auto_now=False, auto_now_add=True)
     # Date the game was completed (will be set at the end of the game)
     played_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
+
+    active_question = models.ForeignKey(Question, null=True, blank=True, on_delete=models.SET_NULL, related_name="active_question")
 
 
     def __str__(self):
@@ -113,6 +116,18 @@ class Player(models.Model):
         # This must return a string
         return f"This player is the '{self.role}'"
 
-    
+class Response(models.Model):
+    sms_sid = models.CharField(max_length=100)
+    response = models.CharField(max_length=1000)
+    to = models.CharField(max_length=100)
+    from_num = models.CharField(max_length=100)
+    msg_sid = models.CharField(max_length=100)
+    question = models.ForeignKey(Question, on_delete=models.SET_NULL, null=True)
+    player = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        # This must return a string
+        return f"{self.player}'s answer: {self.response}"
+
 
 
