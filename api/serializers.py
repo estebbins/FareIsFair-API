@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 # from .models.mango import Mango
 from .models.user import User
-from .models.game_session import GameSession, Player, Question, Player_Response
+from .models.game_session import GameSession, Player, Question, PlayerResponse
 
 # class MangoSerializer(serializers.ModelSerializer):
 #     class Meta:
@@ -50,7 +50,7 @@ class PlayerSerializer(serializers.ModelSerializer):
 
 class PlayerResponseSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Player_Response
+        model = PlayerResponse
         fields = (
             'id',
             'game',
@@ -153,6 +153,6 @@ class PlayerAddResponseSerializer(serializers.Serializer):
     msg_sid = serializers.CharField(max_length=100, required=False)
 
     def create(self, validated_data):
-        return Player_Response.objects.create(**validated_data)
+        return PlayerResponse.objects.create(**validated_data)
 
 

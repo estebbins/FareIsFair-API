@@ -10,9 +10,9 @@ from django.contrib.auth import get_user, authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 import random
 
-from ..serializers import UserSerializer, GameSessionSerializer, GameSessionCreateEditSerializer, PlayerSerializer, PlayerAddSerializer, PlayerSerializer
+from ..serializers import UserSerializer, GameSessionSerializer, GameSessionCreateEditSerializer, PlayerSerializer, PlayerResponseSerializer, PlayerSerializer
 from ..models.user import User
-from ..models.game_session import GameSession, Player, Question, Player_Response
+from ..models.game_session import GameSession, Player, Question, PlayerResponse
 
 class GameSessions(generics.ListAPIView):
     authentication_classes=[ SessionAuthentication ]
@@ -226,7 +226,7 @@ def sms(request):
     
     print('question in sms', current_question)
 
-    created_player_response = Player_Response.objects.create(
+    created_player_response = PlayerResponse.objects.create(
         sms_sid=request.data['SmsSid'], 
         response=request.data['Body'],
         to=request.data['To'],
@@ -242,7 +242,25 @@ def sms(request):
 
     return Response(status=status.HTTP_201_CREATED)
 
+# @api_view(('GET',))
+# @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
+# def find_responses(request):
 
+class PlayerResponseIndex(generics.ListAPIView):
+    """View to return player responses for the specific question"""
+    authentication_classes=[ SessionAuthentication ]
+    permission_classes=(IsAuthenticated,)
+    serializer_class = PlayerResponseSerializer
+
+    def get(self, request, gamesession_id, question_id):
+        """Index request"""
+        # Get all the responses that match the game Id & the question Id
+        responses = PlayerResponse.objects.filter(game=gamesession_id, question=question_id).distinct()
+        print('gamesession', responses)
+        # Run the data through the serializer
+        data = PlayerResponseSerializer(responses, many=True).data
+        print('PlayerResponseIndex data', data)
+        return Response({ 'player_responses': data })
 
 
 

@@ -116,7 +116,7 @@ class Player(models.Model):
         # This must return a string
         return f"This player is the '{self.role}'"
 
-class Player_Response(models.Model):
+class PlayerResponse(models.Model):
     sms_sid = models.CharField(max_length=100)
     response = models.CharField(max_length=1000)
     to = models.CharField(max_length=100)
