@@ -126,6 +126,7 @@ class PlayerResponse(models.Model):
     player = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     date_time = models.DateTimeField(auto_now_add=True)
     game = models.ForeignKey(GameSession, on_delete=models.SET_NULL, null=True)
+    delta = models.IntegerField(null=True)
 
     def __str__(self):
         # This must return a string

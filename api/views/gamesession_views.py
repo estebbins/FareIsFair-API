@@ -93,14 +93,17 @@ def assoc_questions(request, gamesession_id):
     game_questions = Question.objects.filter(id__in=gamesession.questions.values_list('id')).distinct()
     # Grab the players associated with the game to send back in the response
     game_players = Player.objects.filter(game=gamesession_id).distinct()
-
+    # game_players_two = Player.objects.get(game=gamesession_id)
+    # print(game_players_two)
+    game_users = User.objects.filter(id__in=gamesession.players.values_list('id')).distinct()
     # Serialize the data
     game_data = GameSessionSerializer(gamesession).data
     question_data = QuestionSerializer(game_questions, many=True).data
     player_data = PlayerSerializer(game_players, many=True).data
     print('qd', question_data)
+    user_data = UserSerializer(game_users, many=True).data
     # Send it back to the client
-    return Response({ 'gameSession': game_data, 'gameQuestions': question_data, 'players': player_data })
+    return Response({ 'gameSession': game_data, 'gameQuestions': question_data, 'players': player_data, 'users': user_data })
 
 @api_view(('PATCH',))
 @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
@@ -235,6 +238,14 @@ def sms(request):
     except Question.DoesNotExist:
         return Response(status=status.HTTP_400_BAD_REQUEST)
     
+    # Compare responses
+    print('current question answer', float(current_question.answer))
+    print('body', float(request.data['Body']))
+    try:
+        delta = float(current_question.answer) - float(request.data['Body'])
+    except ValueError or TypeError:
+        delta = -1
+    print('delta', delta)
     print('question in sms', current_question)
 
     created_player_response = PlayerResponse.objects.create(
@@ -245,7 +256,8 @@ def sms(request):
         msg_sid=request.data['MessageSid'],
         question=current_question,
         player=player,
-        game=active_game
+        game=active_game,
+        delta=delta
     )
     created_player_response.save()
     
@@ -290,8 +302,7 @@ class QuestionDetail(generics.ListAPIView):
         return Response({ 'question_detail': data })
 
 @api_view(('PATCH',))
-@permission_classes(())
-@renderer_classes((JSONRenderer,))
+@renderer_classes((TemplateHTMLRenderer, JSONRenderer))
 def begin_game(request, gamesession_id):
     # Grab the game session
     game_session = GameSession.objects.get(id=gamesession_id)
@@ -313,5 +324,42 @@ def begin_game(request, gamesession_id):
     game_data = GameSessionSerializer(game_session).data
     return Response({ 'gameSession': game_data })
 
+@api_view(('PATCH',))
+@renderer_classes((TemplateHTMLRenderer, JSONRenderer))
+def score_player(request):
+    print('score player', request.data)
+    player = Player.objects.get(player=request.data["player_id"], game=request.data["game_session_id"])
+    player.score = request.data["score"] + player.score
+    player.save()
+    players = Player.objects.filter(game=request.data["game_session_id"])
+    player_data = PlayerSerializer(players, many=True).data
+    return Response({ 'playerData': player_data })
+
+@api_view(('GET',))
+@renderer_classes((TemplateHTMLRenderer, JSONRenderer))
+def next_round(request, gamesession_id, question_id):
+    GameSession.objects.get(id=gamesession_id).questions.remove(question_id)
+    game_session = GameSession.objects.get(id=gamesession_id)
+    # Randomly select the first question
+    # print(game_session.__dict__)
+    # print('2nd option', game_session.questions.values_list('id', flat=True))
+    question_ids = game_session.questions.values_list('id', flat=True)
+    if len(question_ids) == 0:
+        game_data = 'endgame'
+        return Response({ 'gameSession': game_data })
+    else:
+        next_question = random.sample(list(question_ids), 1) 
+        game_session.active_question=Question.objects.get(id=next_question[0])
+        game_session.save()
+        game_data = GameSessionSerializer(game_session).data
+        return Response({ 'gameSession': game_data })
+    # Update the game session to active, in progress, and modify the play date to now
+    # print('fq', first_question[0])
+    # print(game_session.questions)
+    
+    # game_session.update(is_active=True, game_result='in_progress', played_date=timezone.now(), active_question=first_question)
+    # Serialize the data
+    
+    # return Response({ 'gameSession': game_data })
 
 

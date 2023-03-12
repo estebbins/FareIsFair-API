@@ -62,7 +62,8 @@ class PlayerResponseSerializer(serializers.ModelSerializer):
             'response',
             'to',
             'from_num',
-            'msg_sid'
+            'msg_sid',
+            'delta'
         )
 
 class GameSessionCreateEditSerializer(serializers.Serializer):
@@ -153,6 +154,7 @@ class PlayerAddResponseSerializer(serializers.Serializer):
     to = serializers.CharField(max_length=100, required=False)
     from_num = serializers.CharField(max_length=100, required=False)
     msg_sid = serializers.CharField(max_length=100, required=False)
+    delta = serializers.IntegerField(required=False)
 
     def create(self, validated_data):
         return PlayerResponse.objects.create(**validated_data)
