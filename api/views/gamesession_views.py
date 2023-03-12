@@ -252,17 +252,27 @@ def sms(request):
     print('delta', delta)
     print('question in sms', current_question)
 
-    created_player_response = PlayerResponse.objects.create(
-        sms_sid=request.data['SmsSid'], 
-        response=request.data['Body'],
-        to=request.data['To'],
-        from_num=request.data['From'],
-        msg_sid=request.data['MessageSid'],
-        question=current_question,
-        player=player,
-        game=active_game,
-        delta=delta
-    )
+    try: 
+        created_player_response = PlayerResponse.objects.get(question=current_question, player=player, game=active_game)
+        created_player_response.sms_sid=request.data['SmsSid']
+        created_player_response.response=request.data['Body']
+        created_player_response.to=request.data['To']
+        created_player_response.from_num=request.data['From']
+        created_player_response.msg_sid=request.data['MessageSid']
+        created_player_response.delta=delta
+    except PlayerResponse.DoesNotExist:
+        created_player_response = PlayerResponse.objects.create(
+            sms_sid=request.data['SmsSid'], 
+            response=request.data['Body'],
+            to=request.data['To'],
+            from_num=request.data['From'],
+            msg_sid=request.data['MessageSid'],
+            question=current_question,
+            player=player,
+            game=active_game,
+            delta=delta
+        )
+        
     created_player_response.save()
     
     print('created_player_response', created_player_response)
