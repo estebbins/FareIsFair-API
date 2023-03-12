@@ -1,7 +1,7 @@
 from django.urls import path
 # from .views.mango_views import Mangos, MangoDetail
 from .views.user_views import SignUp, SignIn, SignOut, ChangePassword
-from .views.gamesession_views import GameSessions, assoc_questions, assoc_players, find_players, sms, QuestionDetail, PlayerResponseIndex, GameSessionCreate
+from .views.gamesession_views import GameSessions, assoc_questions, assoc_players, find_players, sms, begin_game, QuestionDetail, PlayerResponseIndex, GameSessionCreate
 
 urlpatterns = [
   	# Restful routing
@@ -20,5 +20,6 @@ urlpatterns = [
     path('sms/', sms, name='sms'),
     # URLs for Live Games
     path('livegame/question/<int:question_id>/', QuestionDetail.as_view(), name='get_question'),
+    path('livegame/begin/<int:gamesession_id>/', begin_game , name='begin_game'),
     path('livegame/<int:gamesession_id>/<int:question_id>/', PlayerResponseIndex.as_view(), name='get_responses')
 ]

@@ -22,7 +22,8 @@ class GameSessionSerializer(serializers.ModelSerializer):
             'players',
             'game_result',
             'created_date',
-            'played_date'
+            'played_date',
+            'active_question'
         )
 
 

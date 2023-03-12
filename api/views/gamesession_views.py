@@ -9,6 +9,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user, authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 import random
+from django.utils import timezone
 
 from ..serializers import UserSerializer, GameSessionSerializer, GameSessionCreateEditSerializer, PlayerSerializer, PlayerResponseSerializer, PlayerSerializer, QuestionSerializer
 from ..models.user import User
@@ -83,13 +84,23 @@ def assoc_questions(request, gamesession_id):
     random_questions= random.sample(all_questions, 5)    
     # If the game already has questions, don't add them
     # If the game does not have questions, add them in one by one
+    print('count', gamesession.questions.count())
     if gamesession.questions.count() == 0:
         for question in random_questions:
             gamesession.questions.add(question.id)
-    # Serialize the game session
-    data = GameSessionSerializer(gamesession).data
+    print('questions', gamesession.questions.values_list('id'))
+    # Grab the questions associated with the game to send back in the response
+    game_questions = Question.objects.filter(id__in=gamesession.questions.values_list('id')).distinct()
+    # Grab the players associated with the game to send back in the response
+    game_players = Player.objects.filter(game=gamesession_id).distinct()
+
+    # Serialize the data
+    game_data = GameSessionSerializer(gamesession).data
+    question_data = QuestionSerializer(game_questions, many=True).data
+    player_data = PlayerSerializer(game_players, many=True).data
+    print('qd', question_data)
     # Send it back to the client
-    return Response({ 'gamesession': data })
+    return Response({ 'gameSession': game_data, 'gameQuestions': question_data, 'players': player_data })
 
 @api_view(('PATCH',))
 @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
@@ -179,7 +190,7 @@ def assoc_players(request):
 @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
 def find_players(request, email):
     print('filter', email)
-    users = User.objects.filter(email__startswith=email)
+    users = User.objects.filter(email__startswith=email).distinct()
 
     data = UserSerializer(users, many=True).data
 
@@ -277,4 +288,30 @@ class QuestionDetail(generics.ListAPIView):
         data = QuestionSerializer(question).data
         print('QuestionIndex data', data)
         return Response({ 'question_detail': data })
+
+@api_view(('PATCH',))
+@permission_classes(())
+@renderer_classes((JSONRenderer,))
+def begin_game(request, gamesession_id):
+    # Grab the game session
+    game_session = GameSession.objects.get(id=gamesession_id)
+    # Randomly select the first question
+    print(game_session.__dict__)
+    print('2nd option', game_session.questions.values_list('id'))
+    question_ids = game_session.questions.values_list('id', flat=True)
+    first_question = random.sample(list(question_ids), 1) 
+    # Update the game session to active, in progress, and modify the play date to now
+    print('fq', first_question[0])
+    print(game_session.questions)
+    game_session.is_active=True
+    game_session.game_result='in_progress'
+    game_session.played_date=timezone.now().date()
+    game_session.active_question=Question.objects.get(id=first_question[0])
+    game_session.save()
+    # game_session.update(is_active=True, game_result='in_progress', played_date=timezone.now(), active_question=first_question)
+    # Serialize the data
+    game_data = GameSessionSerializer(game_session).data
+    return Response({ 'gameSession': game_data })
+
+
 
