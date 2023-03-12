@@ -233,18 +233,22 @@ def sms(request):
 
     print('game in sms', active_game)
 
-    try:
-        current_question = Question.objects.get(id=active_game.active_question_id)
-    except Question.DoesNotExist:
-        return Response(status=status.HTTP_400_BAD_REQUEST)
-    
+    if active_game.game_result == 'completed':
+        current_question = None
+        delta = None
+    else:
+        try:
+            current_question = Question.objects.get(id=active_game.active_question_id)
+        except Question.DoesNotExist:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+        try:
+            delta = float(current_question.answer) - float(request.data['Body'])
+        except ValueError or TypeError:
+            delta = -1
     # Compare responses
     print('current question answer', float(current_question.answer))
     print('body', float(request.data['Body']))
-    try:
-        delta = float(current_question.answer) - float(request.data['Body'])
-    except ValueError or TypeError:
-        delta = -1
+
     print('delta', delta)
     print('question in sms', current_question)
 
@@ -345,7 +349,9 @@ def next_round(request, gamesession_id, question_id):
     # print('2nd option', game_session.questions.values_list('id', flat=True))
     question_ids = game_session.questions.values_list('id', flat=True)
     if len(question_ids) == 0:
-        game_data = 'endgame'
+        game_session.game_result='completed'
+        game_session.save()
+        game_data = GameSessionSerializer(game_session).data
         return Response({ 'gameSession': game_data })
     else:
         next_question = random.sample(list(question_ids), 1) 
