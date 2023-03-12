@@ -362,4 +362,21 @@ def next_round(request, gamesession_id, question_id):
     
     # return Response({ 'gameSession': game_data })
 
-
+@api_view(('GET',))
+@renderer_classes((TemplateHTMLRenderer, JSONRenderer))
+def game_detail(request, gamesession_id):
+    gamesession = GameSession.objects.get(id=gamesession_id)
+    game_questions = Question.objects.filter(id__in=gamesession.questions.values_list('id')).distinct()
+    # Grab the players associated with the game to send back in the response
+    game_players = Player.objects.filter(game=gamesession_id).distinct()
+    # game_players_two = Player.objects.get(game=gamesession_id)
+    # print(game_players_two)
+    game_users = User.objects.filter(id__in=gamesession.players.values_list('id')).distinct()
+    # Serialize the data
+    game_data = GameSessionSerializer(gamesession).data
+    question_data = QuestionSerializer(game_questions, many=True).data
+    player_data = PlayerSerializer(game_players, many=True).data
+    print('qd', question_data)
+    user_data = UserSerializer(game_users, many=True).data
+    # Send it back to the client
+    return Response({ 'gameSession': game_data, 'gameQuestions': question_data, 'players': player_data, 'users': user_data })
