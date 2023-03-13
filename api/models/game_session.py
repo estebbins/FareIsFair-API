@@ -103,8 +103,8 @@ class Player(models.Model):
     ROLE_CHOICES = (
         ('h', 'Host'),
         ('p1', 'Player One'),
-        ('p1', 'Player Two'),
-        ('p1', 'Player Three'),
+        ('p2', 'Player Two'),
+        ('p3', 'Player Three'),
         ('na', 'Empty')
     )
     # Define the role, default to 'na'

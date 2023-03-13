@@ -69,7 +69,6 @@ class GameSessionCreateEditSerializer(serializers.Serializer):
     id = serializers.IntegerField(label='ID', read_only=True)
     is_active = serializers.BooleanField(required=True)
     session_name = serializers.CharField(max_length=25, required=False)
-    # session_password = serializers.CharField(max_length=10, required=True)
     questions = QuestionSerializer(many=True, required=False)
     players = PlayerSerializer(many=True, required=False)
     game_result = serializers.CharField(max_length=11, required=False)

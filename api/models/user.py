@@ -63,7 +63,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     # for the model with the type and options:
     email = models.EmailField(max_length=255, unique=True)
     screenname = models.CharField(max_length=25, unique=True)
-    phone_number = models.CharField(max_length=12)
+    phone_number = models.CharField(max_length=12, unique=True)
     # name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

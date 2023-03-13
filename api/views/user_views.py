@@ -1,6 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import PermissionDenied
+from rest_framework.authentication import SessionAuthentication
 from rest_framework import status, generics
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user, authenticate, login, logout
@@ -82,6 +83,8 @@ class SignIn(generics.CreateAPIView):
             return Response({ 'msg': 'The username and/or password is incorrect.' }, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 class SignOut(generics.DestroyAPIView):
+    authentication_classes=[ SessionAuthentication ]
+    permission_classes=(IsAuthenticated,)
     def delete(self, request):
         # Remove this token from the user
         # request.user.delete_token()

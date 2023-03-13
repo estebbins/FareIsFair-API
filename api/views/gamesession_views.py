@@ -25,7 +25,7 @@ class GameSessions(generics.ListAPIView):
     def get(self, request):
         """Index request"""
         # Get all the games
-        gamesessions = GameSession.objects.filter(players__in=[request.user.id]).distinct()
+        gamesessions = GameSession.objects.filter(players__in=[request.user.id]).distinct().order_by('-pk')
         print('gamesession', gamesessions)
         # Run the data through the serializer
         # print('gamesession(gamesessions)', GameSessionSerializer(gamesessions, many=True))
@@ -113,6 +113,7 @@ def assoc_questions(request, gamesession_id):
 @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
 def assoc_players(request):
     """Add questions to game session array when game is started"""
+    # ! REVISION STILL NEEDED IF THIS IS AN EDIT FROM FRONT END - EDIT IN ADMIN ALSO DOESN'T WORK
     authentication_classes=[ SessionAuthentication ]
     permission_classes=(IsAuthenticated,)
     print('assocplayer req', request)
@@ -157,36 +158,44 @@ def assoc_players(request):
     # print('hosttoprint', host_to_print) 
 
     # If there's data in player_one, then grab the user associated with the email
-    if request.data['players']['player_one']:
-        player_one = User.objects.get(email=request.data['players']['player_one'])
-        print('playerone', player_one)
-        Player.objects.create(role='p1', game=gamesession, player=player_one)
+    try:
+        if request.data['players']['player_one']:
+            player_one = User.objects.get(email=request.data['players']['player_one'])
+            print('playerone', player_one)
+            Player.objects.update_or_create(role='p1', game=gamesession, defaults={'player': player_one})
+    except KeyError:
+        pass
 
     
     # player_to_print = Player.objects.get(game=gamesession)
     # print('playertoprint', player_to_print) 
 
     # If theres data in player_two, but not player one, make that player one
-    if request.data['players']['player_two'] and not player_one:
-        player_one = User.objects.get(email=request.data['players']['player_two'])
-        Player.objects.create(role='p1', game=gamesession, player=player_one)
-       
-    #else if there's a player one, then make player two, player two
-    elif request.data['players']['player_two']:
-        player_two = User.objects.get(email=request.data['players']['player_two'])
-        Player.objects.create(player=player_two, game=gamesession, role='p2')
-
-    #If there's data in player_three but not one or two, make them player one
-    if request.data['players']['player_three'] and not player_one and not player_two:
-        player_one = User.objects.get(email=request.data['players']['player_three'])
-        Player.objects.create(role='p1', game=gamesession, player=player_one)
-    #If there's data in player_three and there's not already a player two, make them 2
-    elif request.data['players']['player_three'] and not player_two:
-        player_two = User.objects.get(email=request.data['players']['player_three'])
-        Player.objects.create(player=player_two, game=gamesession, role='p2')
-    elif request.data['players']['player_three']:
-        player_three = User.objects.get(email=request.data['players']['player_three'])
-        Player.objects.create(player=player_three, game=gamesession, role='p3')
+    try:
+        # if request.data['players']['player_two'] and not player_one:
+        #     player_one = User.objects.get(email=request.data['players']['player_two'])
+        #     Player.objects.update_or_create(role='p1', game=gamesession, defaults={'player': player_one})
+        #else if there's a player one, then make player two, player two
+        if request.data['players']['player_two']:
+            player_two = User.objects.get(email=request.data['players']['player_two'])
+            Player.objects.update_or_create(role='p2', game=gamesession, defaults={'player': player_two})
+    except KeyError:
+        pass
+    
+    try:
+        #If there's data in player_three but not one or two, make them player one
+        # if request.data['players']['player_three'] and not player_one and not player_two:
+        #     player_one = User.objects.get(email=request.data['players']['player_three'])
+        #     Player.objects.update_or_create(role='p1', game=gamesession, defaults={'player': player_one})
+        # #If there's data in player_three and there's not already a player two, make them 2
+        # elif request.data['players']['player_three'] and not player_two:
+        #     player_two = User.objects.get(email=request.data['players']['player_three'])
+        #     Player.objects.update_or_create(role='p2', game=gamesession, defaults={'player': player_two})
+        if request.data['players']['player_three']:
+            player_three = User.objects.get(email=request.data['players']['player_three'])
+            Player.objects.update_or_create(role='p3', game=gamesession, defaults={'player': player_three})
+    except KeyError:
+        pass
 
     # Serialize the game session
     data = GameSessionSerializer(gamesession).data

@@ -21,7 +21,7 @@
 import json
 
 # Opening JSON file
-f = open('red_circle_api_call.json')
+f = open('red_circle_api_call_kitchen.json')
 
 # returns JSON object as 
 # a dictionary
@@ -30,15 +30,26 @@ data = []
 # Iterating through the json
 # list
 for i in all_data['category_results']:
-    entry = {
-        "model": "api.question",
-        "fields": {
-            "prompt": i["product"]["title"],
-            "additional": i["product"]["feature_bullets"][0],
-            "image": i["product"]["main_image"],
-            "answer": i["offers"]["primary"]["price"]
+    try:
+        entry = {
+            "model": "api.question",
+            "fields": {
+                "prompt": i["product"]["title"],
+                "additional": i["product"]["feature_bullets"][0] or 'None Available',
+                "image": i["product"]["main_image"],
+                "answer": i["offers"]["primary"]["price"]
+            }
         }
-    }
+    except KeyError:
+        entry = {
+            "model": "api.question",
+            "fields": {
+                "prompt": i["product"]["title"],
+                "additional": "None Available",
+                "image": i["product"]["main_image"],
+                "answer": i["offers"]["primary"]["price"]
+            }
+        }
     data.append(entry)
 
 print(data)
