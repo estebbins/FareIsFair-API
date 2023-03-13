@@ -16,8 +16,7 @@ class GameSessionSerializer(serializers.ModelSerializer):
         fields = (
             'id', 
             'is_active', 
-            'session_code', 
-            'session_password',
+            'session_name', 
             'questions',
             'players',
             'game_result',
@@ -69,8 +68,8 @@ class PlayerResponseSerializer(serializers.ModelSerializer):
 class GameSessionCreateEditSerializer(serializers.Serializer):
     id = serializers.IntegerField(label='ID', read_only=True)
     is_active = serializers.BooleanField(required=True)
-    session_code = serializers.CharField(max_length=6, required=False)
-    session_password = serializers.CharField(max_length=10, required=True)
+    session_name = serializers.CharField(max_length=25, required=False)
+    # session_password = serializers.CharField(max_length=10, required=True)
     questions = QuestionSerializer(many=True, required=False)
     players = PlayerSerializer(many=True, required=False)
     game_result = serializers.CharField(max_length=11, required=False)
@@ -154,7 +153,7 @@ class PlayerAddResponseSerializer(serializers.Serializer):
     to = serializers.CharField(max_length=100, required=False)
     from_num = serializers.CharField(max_length=100, required=False)
     msg_sid = serializers.CharField(max_length=100, required=False)
-    delta = serializers.IntegerField(required=False)
+    delta = serializers.DecimalField(max_digits=9, decimal_places=2, required=False)
 
     def create(self, validated_data):
         return PlayerResponse.objects.create(**validated_data)

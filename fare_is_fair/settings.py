@@ -83,10 +83,10 @@ DATABASES = {
     'default': DB
 }
 
-DATABASES = {
-    'default': dj_database_url.config(     
-    default='postgresql://postgres:postgres@localhost:5432/<name_of_database>', conn_max_age=600)
-}
+# DATABASES = {
+#     'default': dj_database_url.config(     
+#     default='postgresql://postgres:postgres@localhost:5432/<name_of_database>', conn_max_age=600)
+# }
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -193,9 +193,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:    
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+# ! redo for deployment
+# RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+# if RENDER_EXTERNAL_HOSTNAME:    
+#     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Internationalization

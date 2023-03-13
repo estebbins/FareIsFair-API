@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='gamesession',
             name='session_code',
-            field=models.CharField(default=api.models.game_session.GameSession.session_code_default, max_length=6),
+            field=models.CharField(default=api.models.game_session.GameSession.session_name_default, max_length=6),
         ),
     ]

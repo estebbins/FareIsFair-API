@@ -18,16 +18,18 @@ class GameSession(models.Model):
     # This field is toggeled to True when the game is in progress ONLY
     is_active = models.BooleanField(default=False)
     # Universally unique identifier field up to 6 characters
-    def session_code_default():
+    def session_name_default():
         return uuid.uuid4().hex[:6]
     
-    session_code = models.CharField(
-            max_length=6,
-            default = session_code_default
-    )
+    session_name = models.CharField(max_length=20, default=session_name_default)
+    
+    # session_code = models.CharField(
+    #         max_length=6,
+    #         default = session_code_default
+    # )
 
     # Password set by host to log into game
-    session_password = models.CharField(max_length=8)
+    # session_password = models.CharField(max_length=8)
     # ! Questions join - Figure out limiting to specific #
     questions = models.ManyToManyField(Question, blank=True)
     # ! Responses join - not sure if necessary
@@ -60,7 +62,7 @@ class GameSession(models.Model):
 
     def __str__(self):
         # This must return a string
-        return f"The game code is named '{self.session_code}'"
+        return f"The game code is named '{self.session_name}'"
     
 
 
@@ -126,7 +128,7 @@ class PlayerResponse(models.Model):
     player = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     date_time = models.DateTimeField(auto_now_add=True)
     game = models.ForeignKey(GameSession, on_delete=models.SET_NULL, null=True)
-    delta = models.IntegerField(null=True)
+    delta = models.DecimalField(max_digits=9, decimal_places=2, null=True)
 
     def __str__(self):
         # This must return a string
