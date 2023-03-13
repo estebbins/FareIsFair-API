@@ -32,7 +32,6 @@ env = environ.Env(
 if os.getenv('ENV') == 'development':
     # If we are on development, use the `DB_NAME_DEV` value
     # from the .env file as the database name
-    # ! DB??
     DB_NAME = os.getenv('DB_NAME_DEV')
     DB = {
         'ENGINE': 'django.db.backends.postgresql',
@@ -54,7 +53,6 @@ if os.getenv('ENV') == 'development':
 else:
     # If we are on production, use the dj_database_url package
     # to locate the database based on Heroku setup
-    # ! DB??
     DB = dj_database_url.config()
     # Set debug to false
     DEBUG = 'RENDER' not in os.environ
@@ -193,10 +191,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
-# ! redo for deployment
-# RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-# if RENDER_EXTERNAL_HOSTNAME:    
-#     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:    
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Internationalization
@@ -219,15 +217,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# !IF NOT DEBUG??
-# if not DEBUG:
-#     # Tell Django to copy statics to the `staticfiles` directory
-#     # in your application directory on Render.
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+if not DEBUG:
+    # Tell Django to copy statics to the `staticfiles` directory
+    # in your application directory on Render.
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-#     # Turn on WhiteNoise storage backend that takes care of compressing static files
-#     # and creating unique names for each version so they can safely be cached forever.
-#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    # Turn on WhiteNoise storage backend that takes care of compressing static files
+    # and creating unique names for each version so they can safely be cached forever.
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Use the custom user model as the auth user for the admin view
