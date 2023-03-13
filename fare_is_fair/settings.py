@@ -12,16 +12,27 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import sys
+from pathlib import Path
 import dj_database_url
 
 # .env config:
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 
+import environ
+
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
+
 # Determine if we are on local or production
 if os.getenv('ENV') == 'development':
     # If we are on development, use the `DB_NAME_DEV` value
     # from the .env file as the database name
+    # ! DB??
     DB_NAME = os.getenv('DB_NAME_DEV')
     DB = {
         'ENGINE': 'django.db.backends.postgresql',
@@ -29,6 +40,7 @@ if os.getenv('ENV') == 'development':
     }
     # Set debug to true
     DEBUG = True
+
 
     CORS_ALLOW_CREDENTIALS = True
     # Only allow locally running client at port 3000 for CORS
@@ -42,9 +54,11 @@ if os.getenv('ENV') == 'development':
 else:
     # If we are on production, use the dj_database_url package
     # to locate the database based on Heroku setup
+    # ! DB??
     DB = dj_database_url.config()
     # Set debug to false
-    DEBUG = False
+    DEBUG = 'RENDER' not in os.environ
+    # DEBUG = False
 
     CORS_ALLOW_CREDENTIALS = True
     # Only allow the `CLIENT_ORIGIN` for CORS
@@ -64,13 +78,22 @@ CORS_ALLOW_METHODS = (
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 # Default database as defined above depending on development
 # or production environment
+# ! DB??
 DATABASES = {
     'default': DB
 }
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATABASES = {
+    'default': dj_database_url.config(     
+    default='postgresql://postgres:postgres@localhost:5432/<name_of_database>', conn_max_age=600)
+}
 
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Below from deployment guide in case of errors.
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -98,6 +121,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -169,6 +193,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:    
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -189,6 +217,17 @@ USE_TZ = True
 # optional package: http://whitenoise.evans.io/en/stable/django.html
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# !IF NOT DEBUG??
+# if not DEBUG:
+#     # Tell Django to copy statics to the `staticfiles` directory
+#     # in your application directory on Render.
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#     # Turn on WhiteNoise storage backend that takes care of compressing static files
+#     # and creating unique names for each version so they can safely be cached forever.
+#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Use the custom user model as the auth user for the admin view
 AUTH_USER_MODEL = 'api.User'

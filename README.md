@@ -138,3 +138,4 @@ Project planning guide. [^1]
 [^3]: https://git.generalassemb.ly/sei-ec-remote/django-api-auth-boilerplate
 [^7]: used Lucid Chart to develop the final ERD.
 [^5]: https://git.generalassemb.ly/sei-ec-remote/react-auth-boilerplate
+[^4]: deployment guide: https://git.generalassemb.ly/sei-ec-remote/django-render-deployment
