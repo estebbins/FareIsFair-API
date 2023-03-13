@@ -49,7 +49,15 @@ else:
     CORS_ORIGIN_WHITELIST = [
         os.getenv('CLIENT_ORIGIN')
     ]
-
+    
+CORS_ALLOW_METHODS = (
+        'GET',
+        'POST',
+        'PUT',
+        'PATCH',
+        'DELETE',
+        'OPTIONS'
+    )
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 # Default database as defined above depending on development

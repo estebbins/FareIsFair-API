@@ -272,7 +272,7 @@ def sms(request):
             game=active_game,
             delta=delta
         )
-        
+
     created_player_response.save()
     
     print('created_player_response', created_player_response)
@@ -396,3 +396,35 @@ def game_detail(request, gamesession_id):
     user_data = UserSerializer(game_users, many=True).data
     # Send it back to the client
     return Response({ 'gameSession': game_data, 'gameQuestions': question_data, 'players': player_data, 'users': user_data })
+
+# @api_view(('DELETE',))
+# @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
+# def game_delete(request, id):
+#     gamesession = GameSession.objects.get(pk=id)
+#     if gamesession.game_result == 'pending':
+#         gamesession.delete()
+
+class GameDetail(generics.RetrieveUpdateDestroyAPIView):
+    authentication_classes=[ SessionAuthentication ]
+    permission_classes=(IsAuthenticated,)
+
+    def get(self, request, pk):
+        """Show request"""
+        game = get_object_or_404(GameSession, pk=pk)
+        # Only want to show owned mangos?
+      
+        # Run the data through the serializer so it's formatted
+        data = GameSessionSerializer(game).data
+        return Response({ 'mango': data })
+
+    def delete(self, request, pk):
+        """Delete request"""
+        # Locate game to delete
+        game = get_object_or_404(GameSession, pk=pk)
+        if game.game_result == 'pending':
+            game.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        
+        raise PermissionDenied('Unauthorized, unable to delete game if result is not pending')
+
+
