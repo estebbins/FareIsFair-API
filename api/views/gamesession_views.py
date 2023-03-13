@@ -15,6 +15,9 @@ from ..serializers import UserSerializer, GameSessionSerializer, GameSessionCrea
 from ..models.user import User
 from ..models.game_session import GameSession, Player, Question, PlayerResponse
 
+#  https://stackoverflow.com/questions/55416471/how-to-resolve-assertionerror-accepted-renderer-not-set-on-response-in-django
+
+
 class GameSessions(generics.ListAPIView):
     authentication_classes=[ SessionAuthentication ]
     permission_classes=(IsAuthenticated,)
@@ -90,6 +93,7 @@ def assoc_questions(request, gamesession_id):
             gamesession.questions.add(question.id)
     print('questions', gamesession.questions.values_list('id'))
     # Grab the questions associated with the game to send back in the response
+    #  https://stackoverflow.com/questions/4424435/how-to-convert-a-django-queryset-to-a-list
     game_questions = Question.objects.filter(id__in=gamesession.questions.values_list('id')).distinct()
     # Grab the players associated with the game to send back in the response
     game_players = Player.objects.filter(game=gamesession_id).distinct()

@@ -20,7 +20,7 @@ class SignUp(generics.CreateAPIView):
     def post(self, request):
         # Pass the request data to the serializer to validate it
         print('request', request.data)
-        phone_number = '1' + request.data['credentials']['phone_number']
+        phone_number = '+1' + request.data['credentials']['phone_number']
         request.data['credentials']['phone_number'] = phone_number
         user = UserRegisterSerializer(data=request.data['credentials'])
 

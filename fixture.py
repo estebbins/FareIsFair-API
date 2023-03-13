@@ -1,6 +1,8 @@
 # Python program to read
 # json file
 
+# https://stackoverflow.com/questions/51577441/how-to-seed-django-project-insert-a-bunch-of-data-into-the-project-for-initi
+
 #  https://www.geeksforgeeks.org/read-json-file-using-python/
 
 # Shape of data

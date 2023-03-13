@@ -35,6 +35,8 @@ if os.getenv('ENV') == 'development':
     CORS_ALLOWED_ORIGINS = [
         "http://localhost:3000"
     ]
+    #  https://fractalideas.com/blog/making-react-and-django-play-well-together-single-page-app-model/
+    
     CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
     CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
 else:
@@ -49,7 +51,7 @@ else:
     CORS_ORIGIN_WHITELIST = [
         os.getenv('CLIENT_ORIGIN')
     ]
-    
+
 CORS_ALLOW_METHODS = (
         'GET',
         'POST',

@@ -24,6 +24,6 @@ urlpatterns = [
     path('livegame/<int:gamesession_id>/<int:question_id>/', PlayerResponseIndex.as_view(), name='get_responses'),
     path('livegame/add_score/', score_player, name='score_player'),
     path('livegame/next_round/<int:gamesession_id>/<int:question_id>/', next_round, name='next_round'),
-    # path('game/<int:gamesession_id>/', game_detail, name='game_detail' ),
+    path('game/<int:gamesession_id>/', game_detail, name='game_detail' ),
     path('game/delete/<int:pk>/', GameDetail.as_view(), name='game_delete')
 ]
