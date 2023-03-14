@@ -104,7 +104,7 @@ def assoc_questions(request, gamesession_id):
     game_data = GameSessionSerializer(gamesession).data
     question_data = QuestionSerializer(game_questions, many=True).data
     player_data = PlayerSerializer(game_players, many=True).data
-    print('qd', question_data)
+    # print('qd', question_data)
     user_data = UserSerializer(game_users, many=True).data
     # Send it back to the client
     return Response({ 'gameSession': game_data, 'gameQuestions': question_data, 'players': player_data, 'users': user_data })

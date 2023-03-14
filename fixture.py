@@ -21,7 +21,7 @@
 import json
 
 # Opening JSON file
-f = open('red_circle_api_call_kitchen.json')
+f = open('red_circle_api_videogames.json')
 
 # returns JSON object as 
 # a dictionary
