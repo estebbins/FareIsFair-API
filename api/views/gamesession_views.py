@@ -11,7 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 import random
 from django.utils import timezone
 
-from ..serializers import UserSerializer, GameSessionSerializer, GameSessionCreateEditSerializer, PlayerSerializer, PlayerResponseSerializer, PlayerSerializer, QuestionSerializer
+from ..serializers import UserSerializer, GameSessionSerializer, GameSessionCreateEditSerializer, PlayerSerializer, PlayerResponseSerializer, QuestionSerializer
 from ..models.user import User
 from ..models.game_session import GameSession, Player, Question, PlayerResponse
 
@@ -246,17 +246,69 @@ def sms(request):
 
     print('game in sms', active_game)
 
-    if active_game.game_result == 'completed':
-        current_question = None
-        delta = None
+    if active_game.game_result == 'final_round':
+        # Find prior done response for this game ->
+        try: 
+            PlayerResponse.objects.get(player=player.id, game=active_game, response='done')
+        except PlayerResponse.DoesNotExist:
+            if request.data['Body'].lower().strip() == 'done':
+                delta = 0
+                current_question = None
+                created_player_response = PlayerResponse.objects.create(
+                    sms_sid=request.data['SmsSid'], 
+                    response=request.data['Body'].lower().strip(),
+                    to=request.data['To'],
+                    from_num=request.data['From'],
+                    msg_sid=request.data['MessageSid'],
+                    question=current_question,
+                    player=player,
+                    game=active_game,
+                    delta=delta
+                )
+                created_player_response.save()
+        
+                print('done spinning player', created_player_response)
+
+                return Response(status=status.HTTP_201_CREATED)
+            else:
+                # "Spin the wheel" 
+                wheel = [
+                    .05, .05, .1, .1, .15,
+                    .15, .2, .2, .25, .3, 
+                    .35, .40, .45, .5, .5, 
+                    .75, .75, .8, .9, 1
+                ]
+                spin = random.sample(wheel, 1)
+                current_question = None
+                delta = spin[0]
+                created_player_response = PlayerResponse.objects.create(
+                    sms_sid=request.data['SmsSid'], 
+                    response=request.data['Body'],
+                    to=request.data['To'],
+                    from_num=request.data['From'],
+                    msg_sid=request.data['MessageSid'],
+                    question=current_question,
+                    player=player,
+                    game=active_game,
+                    delta=delta
+                )
+                created_player_response.save()
+        
+                print('spinning player', created_player_response)
+
+                return Response(status=status.HTTP_201_CREATED)
+        else:
+            return Response(status=status.HTTP_200_CREATED)
     else:
         try:
             current_question = Question.objects.get(id=active_game.active_question_id)
         except Question.DoesNotExist:
             return Response(status=status.HTTP_400_BAD_REQUEST)
         try:
-            delta = float(current_question.answer) - float(request.data['Body'])
-        except ValueError or TypeError:
+            delta = float(current_question.answer) - float(request.data['Body'].strip())
+        except ValueError:
+            delta = -1
+        except TypeError:
             delta = -1
     # Compare responses
     print('current question answer', float(current_question.answer))
@@ -304,8 +356,25 @@ class PlayerResponseIndex(generics.ListAPIView):
 
     def get(self, request, gamesession_id, question_id):
         """Index request"""
+        print('q id', question_id)
         # Get all the responses that match the game Id & the question Id
         responses = PlayerResponse.objects.filter(game=gamesession_id, question=question_id).distinct()
+        print('Index Responses', responses)
+        # Run the data through the serializer
+        data = PlayerResponseSerializer(responses, many=True).data
+        print('PlayerResponseIndex data', data)
+        return Response({ 'player_responses': data })
+    
+class PlayerSpinIndex(generics.ListAPIView):
+    """View to return player responses for the specific question"""
+    authentication_classes=[ SessionAuthentication ]
+    permission_classes=(IsAuthenticated,)
+    serializer_class = PlayerResponseSerializer
+
+    def get(self, request, gamesession_id):
+        """Index request"""
+        # Get all the responses that match the game Id & the question Id
+        responses = PlayerResponse.objects.filter(game=gamesession_id, question=None).distinct()
         print('Index Responses', responses)
         # Run the data through the serializer
         data = PlayerResponseSerializer(responses, many=True).data
@@ -356,10 +425,18 @@ def begin_game(request, gamesession_id):
 def score_player(request):
     print('score player', request.data)
     player = Player.objects.get(player=request.data["player_id"], game=request.data["game_session_id"])
-    player.score = request.data["score"] + player.score
-    player.save()
-    players = Player.objects.filter(game=request.data["game_session_id"])
+    if request.data['score'] == 'win':
+        player.winner = True
+        player.save()
+    elif request.data['score'] == 'lose':
+        player.winner = False
+        player.save()
+    else:
+        player.score = request.data["score"] + player.score
+        player.save()
+    players = Player.objects.filter(game=request.data["game_session_id"]).distinct()
     player_data = PlayerSerializer(players, many=True).data
+    print('player data @ score', player_data)
     return Response({ 'playerData': player_data })
 
 @api_view(('GET',))
@@ -372,7 +449,7 @@ def next_round(request, gamesession_id, question_id):
     # print('2nd option', game_session.questions.values_list('id', flat=True))
     question_ids = game_session.questions.values_list('id', flat=True)
     if len(question_ids) == 0:
-        game_session.game_result='completed'
+        game_session.game_result='final_round'
         game_session.save()
         game_data = GameSessionSerializer(game_session).data
         return Response({ 'gameSession': game_data })
@@ -394,6 +471,8 @@ def next_round(request, gamesession_id, question_id):
 @api_view(('GET',))
 @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
 def game_detail(request, gamesession_id):
+    authentication_classes=[ SessionAuthentication ]
+    permission_classes=(IsAuthenticated,)
     gamesession = GameSession.objects.get(id=gamesession_id)
     game_questions = Question.objects.filter(id__in=gamesession.questions.values_list('id')).distinct()
     # Grab the players associated with the game to send back in the response
@@ -406,16 +485,14 @@ def game_detail(request, gamesession_id):
     question_data = QuestionSerializer(game_questions, many=True).data
     player_data = PlayerSerializer(game_players, many=True).data
     print('qd', question_data)
+    print('player_data !!!!!!!!', player_data)
+    print('gamedata', game_data)
     user_data = UserSerializer(game_users, many=True).data
+    print('user data', user_data)
     # Send it back to the client
+    print({ 'gameSession': game_data, 'gameQuestions': question_data, 'players': player_data, 'users': user_data })
     return Response({ 'gameSession': game_data, 'gameQuestions': question_data, 'players': player_data, 'users': user_data })
 
-# @api_view(('DELETE',))
-# @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
-# def game_delete(request, id):
-#     gamesession = GameSession.objects.get(pk=id)
-#     if gamesession.game_result == 'pending':
-#         gamesession.delete()
 
 class GameDetail(generics.RetrieveUpdateDestroyAPIView):
     authentication_classes=[ SessionAuthentication ]
@@ -440,4 +517,38 @@ class GameDetail(generics.RetrieveUpdateDestroyAPIView):
         
         raise PermissionDenied('Unauthorized, unable to delete game if result is not pending')
 
+@api_view(('PATCH',))
+@renderer_classes((TemplateHTMLRenderer, JSONRenderer))
+def abandon_game(request, pk):
+    gamesession = GameSession.objects.get(pk=pk)
+    gamesession.game_result='abandoned'
+    gamesession.is_active=False
+    gamesession.save()
+    return Response(status=status.HTTP_200_OK)
+
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    authentication_classes=[ SessionAuthentication ]
+    permission_classes=(IsAuthenticated,)
+
+    def get(self, request, pk):
+        """Show request"""
+        user = get_object_or_404(User, pk=pk)
+      
+        # Run the data through the serializer so it's formatted
+        data = UserSerializer(user).data
+        return Response({ 'user': data })
+
+# class MangoDetail(generics.RetrieveUpdateDestroyAPIView):
+#     permission_classes=(IsAuthenticated,)
+#     def get(self, request, pk):
+#         """Show request"""
+#         # Locate the mango to show
+#         mango = get_object_or_404(Mango, pk=pk)
+#         # Only want to show owned mangos?
+#         if request.user != mango.owner:
+#             raise PermissionDenied('Unauthorized, you do not own this mango')
+
+#         # Run the data through the serializer so it's formatted
+#         data = MangoSerializer(mango).data
+#         return Response({ 'mango': data })
 

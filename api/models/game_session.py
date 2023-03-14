@@ -44,7 +44,8 @@ class GameSession(models.Model):
         ('completed', 'Completed'),
         ('abandoned', 'Abandoned'),
         ('in_progress', 'In Progress'),
-        ('pending', 'Pending')
+        ('pending', 'Pending'),
+        ('final_round', 'Final Round')
     )
     game_result = models.CharField(
         max_length=11, 
@@ -117,7 +118,17 @@ class Player(models.Model):
     def __str__(self):
         # This must return a string
         return f"This player is the '{self.role}'"
-
+    
+    def as_dict(self):
+        """Returns dictionary version of Mango models"""
+        return {
+            'id': self.id,
+            'player': self.player,
+            'game': self.game,
+            'role': self.role,
+            'score': self.score,
+            'winner': self.winner
+        }
 class PlayerResponse(models.Model):
     sms_sid = models.CharField(max_length=100)
     response = models.CharField(max_length=1000)

@@ -1,7 +1,7 @@
 from django.urls import path
 # from .views.mango_views import Mangos, MangoDetail
 from .views.user_views import SignUp, SignIn, SignOut, ChangePassword
-from .views.gamesession_views import GameSessions, assoc_questions, assoc_players, find_players, sms, begin_game, score_player, next_round, game_detail, QuestionDetail, PlayerResponseIndex, GameSessionCreate, GameDetail
+from .views.gamesession_views import GameSessions, assoc_questions, assoc_players, find_players, sms, begin_game, score_player, next_round, game_detail, abandon_game, QuestionDetail, PlayerResponseIndex, PlayerSpinIndex, GameSessionCreate, GameDetail, UserDetail
 
 urlpatterns = [
   	# Restful routing
@@ -22,8 +22,11 @@ urlpatterns = [
     path('livegame/question/<int:question_id>/', QuestionDetail.as_view(), name='get_question'),
     path('livegame/begin/<int:gamesession_id>/', begin_game , name='begin_game'),
     path('livegame/<int:gamesession_id>/<int:question_id>/', PlayerResponseIndex.as_view(), name='get_responses'),
+    path('livegame/spins/<int:gamesession_id>/', PlayerSpinIndex.as_view(), name='get_spins'),
     path('livegame/add_score/', score_player, name='score_player'),
     path('livegame/next_round/<int:gamesession_id>/<int:question_id>/', next_round, name='next_round'),
     path('game/<int:gamesession_id>/', game_detail, name='game_detail' ),
-    path('game/delete/<int:pk>/', GameDetail.as_view(), name='game_delete')
+    path('game/delete/<int:pk>/', GameDetail.as_view(), name='game_delete'),
+    path('game/abandon/<int:pk>/', abandon_game, name='game_abandon'),
+    path('user-detail/<int:user_id>/', UserDetail.as_view(), name='user-detail')
 ]

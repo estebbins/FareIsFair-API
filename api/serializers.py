@@ -37,17 +37,22 @@ class QuestionSerializer(serializers.ModelSerializer):
             'answer'
         )
 
-class PlayerSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Player
-        fields = (
-            'id', 
-            'player',
-            'game',
-            'role',
-            'score', 
-            'winner'
-        )
+# class PlayerSerializer(serializers.HyperlinkedModelSerializer):
+#     class Meta:
+#         # context={'request': request}
+#         model = Player
+#         fields = (
+#             'id', 
+#             'player',
+#             'game',
+#             'role',
+#             'score', 
+#             'winner'
+#         )
+#         extra_kwargs = {
+#             'url': {'view_name': 'user-detail', 'lookup_field': 'user'},
+#             # 'player': {'lookup_field': 'id'}
+#         }
 
 class PlayerResponseSerializer(serializers.ModelSerializer):
     class Meta:
@@ -65,6 +70,18 @@ class PlayerResponseSerializer(serializers.ModelSerializer):
             'delta'
         )
 
+
+class PlayerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Player
+        fields = (
+            'player', 
+            'game',
+            'role',
+            'score',
+            'winner'
+        )
+
 class GameSessionCreateEditSerializer(serializers.Serializer):
     id = serializers.IntegerField(label='ID', read_only=True)
     is_active = serializers.BooleanField(required=True)
@@ -79,17 +96,6 @@ class GameSessionCreateEditSerializer(serializers.Serializer):
         return GameSession.objects.create(**validated_data)
 
 
-
-class PlayerSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Player
-        fields = (
-            'player', 
-            'game',
-            'role',
-            'score',
-            'winner'
-        )
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation
