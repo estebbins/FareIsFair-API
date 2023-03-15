@@ -1,0 +1,2332 @@
+{
+    "request_info": {
+      "success": true,
+      "credits_used": 6,
+      "credits_remaining": 94,
+      "credits_used_this_request": 1
+    },
+    "request_parameters": {
+      "type": "category",
+      "category_id": "5xtbo",
+      "sort_by": "price_high_to_low",
+      "rating": "five_star"
+    },
+    "request_metadata": {
+      "created_at": "2023-03-15T12:58:45.965Z",
+      "processed_at": "2023-03-15T12:58:51.423Z",
+      "total_time_taken": 5.46,
+      "target_url": "https://www.target.com/c/-/N-5xtbo?sortBy=PriceHigh&Nao=0&facetedValue=5zkq6"
+    },
+    "category_results": [
+      {
+        "position": 1,
+        "product": {
+          "title": "Vera Bradley Women's Performance Twill Grand Weekender Travel Bag Olive Leaf",
+          "link": "https://www.target.com/p/vera-bradley-women-s-performance-twill-grand-weekender-travel-bag-olive-leaf/-/A-88552232",
+          "tcin": "88552232",
+          "class_id": 4,
+          "department_id": 69,
+          "brand": "Vera Bradley",
+          "brand_link": "https://www.target.com/b/vera-bradley/-/N-iyvv0",
+          "feature_bullets": [
+            "Made from quilted, sleek, water-repellent polyester",
+            "Shop Vera Bradley for top gifts for women. Graduation, birthdays, Christmas and Mother's Day, we have all of the options you're searching for to make her smile",
+            "Vera Bradley is a destination for Tote Bags, Travel Styles, Backpacks and Accessories for women",
+            "Main compartment features five mesh slip pockets",
+            "Zip closures"
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_e82f54ca-a900-4756-b516-1064ee97390f",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_e82f54ca-a900-4756-b516-1064ee97390f",
+            "https://target.scene7.com/is/image/Target/GUEST_96882ca5-93e1-41da-8d92-bfde07ce8002",
+            "https://target.scene7.com/is/image/Target/GUEST_1d661e70-ad0c-4c00-ab02-5fc446775224"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 200,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 200,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "Vera Bradley",
+          "id": "10007521"
+        }
+      },
+      {
+        "position": 2,
+        "product": {
+          "title": "Vera Bradley Women's   Lay Flat Travel Bag Black",
+          "link": "https://www.target.com/p/vera-bradley-women-s-lay-flat-travel-bag-black/-/A-86080374",
+          "tcin": "86080374",
+          "class_id": 4,
+          "department_id": 69,
+          "brand": "Vera Bradley",
+          "brand_link": "https://www.target.com/b/vera-bradley/-/N-iyvv0",
+          "feature_bullets": [
+            "Bag unzips to lie flat for packing",
+            "Exterior features a zip pocket and a zip compartment",
+            "Zip trolley sleeve",
+            "Front compartment features three elastic mesh slip pockets",
+            "Main compartment features two mesh zip compartments."
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_234efc5f-4ced-4392-91d4-af40793948a7",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_234efc5f-4ced-4392-91d4-af40793948a7",
+            "https://target.scene7.com/is/image/Target/GUEST_5cfb4325-9092-40b8-be86-7d3d23ce99c4",
+            "https://target.scene7.com/is/image/Target/GUEST_e56b2ce1-a53f-4d71-86c1-e4103178ee1c",
+            "https://target.scene7.com/is/image/Target/GUEST_d410159f-010f-4f42-a881-b66aabf5caf8",
+            "https://target.scene7.com/is/image/Target/GUEST_3340cd84-6c48-46be-969e-d13a442a629d",
+            "https://target.scene7.com/is/image/Target/GUEST_6d4647ba-30d3-46b6-b2c8-3b4940696385",
+            "https://target.scene7.com/is/image/Target/GUEST_67b42470-d622-4a47-bc6f-5d0daeea6aad",
+            "https://target.scene7.com/is/image/Target/GUEST_bd8bcdc5-f46e-4f15-8f29-8373c3c460f4",
+            "https://target.scene7.com/is/image/Target/GUEST_a25f081f-0760-4d82-84eb-e24a03f9ba16",
+            "https://target.scene7.com/is/image/Target/GUEST_198f4544-3ac2-4fff-93dd-66216a73a744",
+            "https://target.scene7.com/is/image/Target/GUEST_e8327d9d-140c-4afa-8083-e2f68ae8a655"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 200,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 200,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "Vera Bradley",
+          "id": "10007521"
+        }
+      },
+      {
+        "position": 3,
+        "product": {
+          "title": "baggallini Modern Everywhere Vegan Leather Crossbody Hobo Bag with RFID Wristlet",
+          "link": "https://www.target.com/p/baggallini-modern-everywhere-vegan-leather-crossbody-hobo-bag-with-rfid-wristlet/-/A-87450286",
+          "tcin": "87450286",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Baggallini",
+          "brand_link": "https://www.target.com/b/baggallini/-/N-q643le1hcdb",
+          "feature_bullets": [
+            "Vegan leather",
+            "52\" removable, adjustable crossbody strap",
+            "Exterior and Interior organization",
+            "Grab and Go Phone Pocket",
+            "Scratch resistant pocket"
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_7c20a0ea-456f-443e-8b3e-81a66c34a4b3",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_7c20a0ea-456f-443e-8b3e-81a66c34a4b3",
+            "https://target.scene7.com/is/image/Target/GUEST_26de602a-b3eb-4296-ba45-5c87f150fb2f",
+            "https://target.scene7.com/is/image/Target/GUEST_2c2911c1-3d29-4c48-b2b1-6114d876d0b3",
+            "https://target.scene7.com/is/image/Target/GUEST_3ace07cb-eff8-4c4f-8de5-8fc20ec5c9c9",
+            "https://target.scene7.com/is/image/Target/GUEST_ad2ff7bf-8207-499f-873a-da679425437f"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 150,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 150,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "baggallini",
+          "id": "10008220"
+        }
+      },
+      {
+        "position": 4,
+        "product": {
+          "title": "baggallini Soho Duffel Bag",
+          "link": "https://www.target.com/p/baggallini-soho-duffel-bag/-/A-86345428",
+          "tcin": "86345428",
+          "class_id": 4,
+          "department_id": 69,
+          "brand": "Baggallini",
+          "brand_link": "https://www.target.com/b/baggallini/-/N-q643le1hcdb",
+          "feature_bullets": [
+            "Crafted to be clean",
+            "52\" removable, adjustable crossbody strap",
+            "Interior organization",
+            "Sleeve for luggage handle",
+            "21” w x 12” h x 11” d – 2 lbs. 9 oz."
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_161c9d7c-fc4e-49d3-ac4a-73ae3cb98051",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_161c9d7c-fc4e-49d3-ac4a-73ae3cb98051",
+            "https://target.scene7.com/is/image/Target/GUEST_5e6138da-0e5f-4477-87c8-d33c80193e8f",
+            "https://target.scene7.com/is/image/Target/GUEST_c8bcb193-9155-4f6a-b996-331aedef4cae",
+            "https://target.scene7.com/is/image/Target/GUEST_1201e015-5999-4440-a51d-8707992a87ed",
+            "https://target.scene7.com/is/image/Target/GUEST_da98ded7-3f94-4d58-8241-5b01057279e2"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 150,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 150,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "baggallini",
+          "id": "10008220"
+        }
+      },
+      {
+        "position": 5,
+        "product": {
+          "title": "Kipling Hello Kitty Kala Mini Handbag Rabbit Pink",
+          "link": "https://www.target.com/p/kipling-hello-kitty-kala-mini-handbag-rabbit-pink/-/A-88340012",
+          "tcin": "88340012",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Kipling",
+          "brand_link": "https://www.target.com/b/kipling/-/N-q643le8pjc9",
+          "feature_bullets": [
+            "Recycled Polyester",
+            "Dimensions: 14.5''L x 8.75''H x 5.5''D",
+            "Weight: 0.84 lbs",
+            "Volume: 9L",
+            "Adjustable, removable shoulder strap"
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_2269b40b-6dd5-4076-a331-da3e8915ccfe",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_2269b40b-6dd5-4076-a331-da3e8915ccfe",
+            "https://target.scene7.com/is/image/Target/GUEST_abc2aadc-5570-4ca8-8853-2904b25cc617",
+            "https://target.scene7.com/is/image/Target/GUEST_2c7d9c48-5adf-441d-81f9-c569ca5a40bf",
+            "https://target.scene7.com/is/image/Target/GUEST_db862e81-ec6c-4365-94e6-33e6ac3bba94",
+            "https://target.scene7.com/is/image/Target/GUEST_e693d412-e7b0-4da1-9bf9-0047c90da078",
+            "https://target.scene7.com/is/image/Target/GUEST_76600e81-a7f9-4f73-969b-22b27f58c775",
+            "https://target.scene7.com/is/image/Target/GUEST_7ca7d337-1211-4a7e-ad7e-abd022a3d527"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 144,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 144,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "Kipling",
+          "id": "10004560"
+        }
+      },
+      {
+        "position": 6,
+        "product": {
+          "title": "Vera Bradley Women's Recycled Cotton Vera Tote Bag Imperial Hearts Red",
+          "link": "https://www.target.com/p/vera-bradley-women-s-recycled-cotton-vera-tote-bag-imperial-hearts-red/-/A-88345551",
+          "tcin": "88345551",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Vera Bradley",
+          "brand_link": "https://www.target.com/b/vera-bradley/-/N-iyvv0",
+          "feature_bullets": [
+            "Consciously crafted with recycled cotton",
+            "Shop Vera Bradley for top gifts for women. Graduation, birthdays, Christmas and Mother's Day, we have all of the options you're searching for to make her smile",
+            "Vera Bradley is a destination for Tote Bags, Travel Styles, Backpacks and Accessories for women",
+            "Interior features six slip pockets",
+            "Zip closures."
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_8dfeeeee-d218-405f-bd8c-a4eda82e7763",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_8dfeeeee-d218-405f-bd8c-a4eda82e7763",
+            "https://target.scene7.com/is/image/Target/GUEST_70e4f286-8a10-4d5d-96cc-4f6b634d95a4",
+            "https://target.scene7.com/is/image/Target/GUEST_8970da72-fe2c-4687-9a36-959aef9e297a"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 140,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 140,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "Vera Bradley",
+          "id": "10007521"
+        }
+      },
+      {
+        "position": 7,
+        "product": {
+          "title": "baggallini All Day Small Duffel Shoulder Bag",
+          "link": "https://www.target.com/p/baggallini-all-day-small-duffel-shoulder-bag/-/A-88557942",
+          "tcin": "88557942",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Baggallini",
+          "brand_link": "https://www.target.com/b/baggallini/-/N-q643le1hcdb",
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_9285e8e0-d5f2-4600-825a-01d19b70d51b",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_9285e8e0-d5f2-4600-825a-01d19b70d51b",
+            "https://target.scene7.com/is/image/Target/GUEST_bf12f478-bb7d-4114-895c-13c40b0f5ac2",
+            "https://target.scene7.com/is/image/Target/GUEST_54cd5392-f1f9-4f5d-b54a-b4668562c6a3",
+            "https://target.scene7.com/is/image/Target/GUEST_f31b79d3-9a6f-404a-abaf-aa03bb73a41b",
+            "https://target.scene7.com/is/image/Target/GUEST_b17314f0-3478-44e9-8c47-5e5c26660174",
+            "https://target.scene7.com/is/image/Target/GUEST_5faca645-d97e-4040-a9f7-a24dc7443079",
+            "https://target.scene7.com/is/image/Target/GUEST_46514532-8cc1-4879-b300-eed0055883bc",
+            "https://target.scene7.com/is/image/Target/GUEST_3beaf32a-4f39-4934-826c-b7998f8672c2",
+            "https://target.scene7.com/is/image/Target/GUEST_aad46210-99e5-4a14-8d73-92030e260941"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 130,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 130,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "baggallini",
+          "id": "10008220"
+        }
+      },
+      {
+        "position": 8,
+        "product": {
+          "title": "GiGi New York White Kylie Belt Bag",
+          "link": "https://www.target.com/p/gigi-new-york-white-kylie-belt-bag/-/A-84601998",
+          "tcin": "84601998",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "GiGi New York",
+          "brand_link": "https://www.target.com/b/gigi-new-york/-/N-q643len507s",
+          "feature_bullets": [
+            "Top zipper closure",
+            "Four Interior card slots pocket",
+            "Adjustable & removable belt",
+            "Size: 7â€ W x 5\" H x 2 1/8â€ D"
+          ],
+          "rating": 5,
+          "ratings_total": 1,
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_206a3592-548a-4553-9668-6b00386efdc3",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_206a3592-548a-4553-9668-6b00386efdc3",
+            "https://target.scene7.com/is/image/Target/GUEST_6f1f594e-023e-4843-88f8-d240dfe0a69e",
+            "https://target.scene7.com/is/image/Target/GUEST_61843bfd-0542-496f-abfd-80b8593d29e0",
+            "https://target.scene7.com/is/image/Target/GUEST_f2a38a52-f48b-43c1-9b0b-d4f1dc9b3ca3"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 125,
+            "currency": "USD",
+            "symbol": "$",
+            "regular_price": 198
+          },
+          "all_offers": [
+            {
+              "price": 125,
+              "currency": "USD",
+              "symbol": "$",
+              "regular_price": 198
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "GiGi New York",
+          "id": "10004740"
+        }
+      },
+      {
+        "position": 9,
+        "product": {
+          "title": "A.Saks Expandable 26 Suitcase (Black)",
+          "link": "https://www.target.com/p/a-saks-expandable-26-suitcase-black/-/A-84593890",
+          "tcin": "84593890",
+          "class_id": 4,
+          "department_id": 69,
+          "brand": "A. Saks",
+          "brand_link": "https://www.target.com/b/a-saks/-/N-q643lejlbcj",
+          "feature_bullets": [
+            "Lightweight rip-stop nylon. Each side expands independently of each other for a total of 6 inches.",
+            "Nylon dual carry handles which can convert to shoulder strap. 1 outside zippered pocket.",
+            "Interior tie down straps",
+            "Front and back zippered access",
+            "Interlocking heavy duty zippers"
+          ],
+          "rating": 5,
+          "ratings_total": 1,
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_99712bba-00f3-44c9-888a-c27adf17413e",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_99712bba-00f3-44c9-888a-c27adf17413e",
+            "https://target.scene7.com/is/image/Target/GUEST_e3fa4415-30a0-498b-a544-6ed07b5fafe4",
+            "https://target.scene7.com/is/image/Target/GUEST_a8c9847f-7d54-4c92-a8fa-47d74afed189",
+            "https://target.scene7.com/is/image/Target/GUEST_eeabccb0-aca7-4be0-b6e7-984f23df7624",
+            "https://target.scene7.com/is/image/Target/GUEST_9ebea5dc-001e-4980-ab3a-abf2e58917bf",
+            "https://target.scene7.com/is/image/Target/GUEST_b1fd57b0-a021-460f-a7f8-80e243f2176b",
+            "https://target.scene7.com/is/image/Target/GUEST_958b09a5-18e1-406b-924c-c8e52fb720de",
+            "https://target.scene7.com/is/image/Target/GUEST_8ba7efd9-f15c-4a18-b06a-2c623037b6a0",
+            "https://target.scene7.com/is/image/Target/GUEST_5582c6f6-c944-44da-b75b-1e2ad8045545"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 122.5,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 122.5,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "Luggage Online",
+          "id": "10005780"
+        }
+      },
+      {
+        "position": 10,
+        "product": {
+          "title": "baggallini Carryall Daily Tote",
+          "link": "https://www.target.com/p/baggallini-carryall-daily-tote/-/A-88557951",
+          "tcin": "88557951",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Baggallini",
+          "brand_link": "https://www.target.com/b/baggallini/-/N-q643le1hcdb",
+          "feature_bullets": [
+            "Crafted to be Clean",
+            "52\" removable, comfort crossbody strap",
+            "Exterior and Interior organization",
+            "Grab & Go Phone Pocket",
+            "Scratch resistant pocket"
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_5a145eda-7f3f-4861-a070-da57617bccb1",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_5a145eda-7f3f-4861-a070-da57617bccb1",
+            "https://target.scene7.com/is/image/Target/GUEST_86d89e11-ccb5-4285-97bb-401d66ccbf93",
+            "https://target.scene7.com/is/image/Target/GUEST_a97f19ab-30c4-455b-9635-cecd2a27a15e",
+            "https://target.scene7.com/is/image/Target/GUEST_cdbaf9b7-f73e-4f79-95f0-279fbd80eba5",
+            "https://target.scene7.com/is/image/Target/GUEST_e946558b-3c8e-4193-a30f-f7743762e27e",
+            "https://target.scene7.com/is/image/Target/GUEST_276bef14-a594-4054-8af2-f86e7d4f15cf"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 120,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 120,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "baggallini",
+          "id": "10008220"
+        }
+      },
+      {
+        "position": 11,
+        "product": {
+          "title": "baggallini Expandable Modern Pocket Large Hobo Bag",
+          "link": "https://www.target.com/p/baggallini-expandable-modern-pocket-large-hobo-bag/-/A-88557941",
+          "tcin": "88557941",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Baggallini",
+          "brand_link": "https://www.target.com/b/baggallini/-/N-q643le1hcdb",
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_53e1ac4b-2f60-4984-bb1e-c0c0db84dce0",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_53e1ac4b-2f60-4984-bb1e-c0c0db84dce0",
+            "https://target.scene7.com/is/image/Target/GUEST_3606b33c-09cd-4a3b-816d-bc9cfbe8e0df",
+            "https://target.scene7.com/is/image/Target/GUEST_64de1f7a-62ae-4985-8bc3-522768691ea6"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 120,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 120,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "baggallini",
+          "id": "10008220"
+        }
+      },
+      {
+        "position": 12,
+        "product": {
+          "title": "Kipling Hello Kitty Riri Crossbody Bag Rabbit Pink",
+          "link": "https://www.target.com/p/kipling-hello-kitty-riri-crossbody-bag-rabbit-pink/-/A-88340018",
+          "tcin": "88340018",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Kipling",
+          "brand_link": "https://www.target.com/b/kipling/-/N-q643le8pjc9",
+          "feature_bullets": [
+            "Recycled Polyester",
+            "Dimensions: 9.5''L x 6.25''H x 2.5''D",
+            "Weight: 0.53 lbs",
+            "Volume: 1L",
+            "Internal zip compartment"
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_cabe1fdd-7a84-492f-9da7-03ae6df6d804",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_cabe1fdd-7a84-492f-9da7-03ae6df6d804",
+            "https://target.scene7.com/is/image/Target/GUEST_5f503813-f399-4101-ab8e-a6feb6fad2dc",
+            "https://target.scene7.com/is/image/Target/GUEST_d64d414d-5cba-4576-a07a-897c73e1276d",
+            "https://target.scene7.com/is/image/Target/GUEST_93946e1f-0b73-4c16-af66-76f994da0e9d",
+            "https://target.scene7.com/is/image/Target/GUEST_d58e5f7d-3f75-45a8-9f72-5e75b8d56cb1",
+            "https://target.scene7.com/is/image/Target/GUEST_d074bc3c-a5bc-4a83-a956-7571a06fcf0e",
+            "https://target.scene7.com/is/image/Target/GUEST_32a5d88f-43ca-4113-8a26-72a88056e3a4"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 119,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 119,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "Kipling",
+          "id": "10004560"
+        }
+      },
+      {
+        "position": 13,
+        "product": {
+          "title": "baggallini Women's Modern Everywhere Hobo Crossbody Bag with Wristlet",
+          "link": "https://www.target.com/p/baggallini-women-s-modern-everywhere-hobo-crossbody-bag-with-wristlet/-/A-86435039",
+          "tcin": "86435039",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Baggallini",
+          "brand_link": "https://www.target.com/b/baggallini/-/N-q643le1hcdb",
+          "feature_bullets": [
+            "Crafted to be Clean",
+            "52\" removable, comfort crossbody strap",
+            "Exterior and Interior organization",
+            "Grab and Go Phone Pocket",
+            "Scratch resistant pocket"
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_aa2518f9-5c93-489b-ad9b-ad67a48ef455",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_aa2518f9-5c93-489b-ad9b-ad67a48ef455",
+            "https://target.scene7.com/is/image/Target/GUEST_e22d02d9-79df-4b8e-bba6-0557f831666d",
+            "https://target.scene7.com/is/image/Target/GUEST_3f0dfb2b-be8e-4cfb-9cda-d5f13f2c9526",
+            "https://target.scene7.com/is/image/Target/GUEST_0a0e5dc3-f8fa-42fc-8824-450c2af40ade",
+            "https://target.scene7.com/is/image/Target/GUEST_9abebe78-723f-439b-a692-2cec002319f2",
+            "https://target.scene7.com/is/image/Target/GUEST_d1b01cbd-8020-493f-ba53-f62a65fdb09c"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 110,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 110,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "baggallini",
+          "id": "10008220"
+        }
+      },
+      {
+        "position": 14,
+        "product": {
+          "title": "baggallini Modern Everywhere Drawstring Crossbody Bag",
+          "link": "https://www.target.com/p/baggallini-modern-everywhere-drawstring-crossbody-bag/-/A-88558684",
+          "tcin": "88558684",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Baggallini",
+          "brand_link": "https://www.target.com/b/baggallini/-/N-q643le1hcdb",
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_b1fe7b9d-1a11-4ae4-8457-2db68688ce36",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_b1fe7b9d-1a11-4ae4-8457-2db68688ce36",
+            "https://target.scene7.com/is/image/Target/GUEST_870067d3-2290-4ca6-b73f-7d457c95eab3",
+            "https://target.scene7.com/is/image/Target/GUEST_5ddb23ae-302a-40ab-a690-6432c6f5eb5c",
+            "https://target.scene7.com/is/image/Target/GUEST_e0f30554-e5b8-46cf-9f47-6204a3e93d8c",
+            "https://target.scene7.com/is/image/Target/GUEST_e54d1155-49e5-494a-8994-403c1bc3c287"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 100,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 100,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "baggallini",
+          "id": "10008220"
+        }
+      },
+      {
+        "position": 15,
+        "product": {
+          "title": "Vera Bradley Women's Straw Straw Bucket Tote Bag Turtle Dream",
+          "link": "https://www.target.com/p/vera-bradley-women-s-straw-straw-bucket-tote-bag-turtle-dream/-/A-88558625",
+          "tcin": "88558625",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Vera Bradley",
+          "brand_link": "https://www.target.com/b/vera-bradley/-/N-iyvv0",
+          "feature_bullets": [
+            "Straw",
+            "Shop Vera Bradley for top gifts for women. Graduation, birthdays, Christmas and Mother's Day, we have all of the options you're searching for to make her smile",
+            "Vera Bradley is a destination for Tote Bags, Travel Styles, Backpacks and Accessories for women",
+            "Zip closure."
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_31df4be0-75df-4f32-8a44-438073d2c265",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_31df4be0-75df-4f32-8a44-438073d2c265",
+            "https://target.scene7.com/is/image/Target/GUEST_6559dbdb-b1d9-48dc-abae-594e2c845e26",
+            "https://target.scene7.com/is/image/Target/GUEST_d2c70ed4-987d-4808-9c78-55e43f4d0cee"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 100,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 100,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "Vera Bradley",
+          "id": "10007521"
+        }
+      },
+      {
+        "position": 16,
+        "product": {
+          "title": "Vera Bradley Women's Straw Straw Bucket Tote Bag Spring Mint Stripe",
+          "link": "https://www.target.com/p/vera-bradley-women-s-straw-straw-bucket-tote-bag-spring-mint-stripe/-/A-88558545",
+          "tcin": "88558545",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Vera Bradley",
+          "brand_link": "https://www.target.com/b/vera-bradley/-/N-iyvv0",
+          "feature_bullets": [
+            "Straw",
+            "Shop Vera Bradley for top gifts for women. Graduation, birthdays, Christmas and Mother's Day, we have all of the options you're searching for to make her smile",
+            "Vera Bradley is a destination for Tote Bags, Travel Styles, Backpacks and Accessories for women"
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_dbbb731c-cbf7-4228-a011-d7ffb7adadc0",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_dbbb731c-cbf7-4228-a011-d7ffb7adadc0",
+            "https://target.scene7.com/is/image/Target/GUEST_0a2d9a2c-4235-4ccf-8e4c-f6410c51a5b8",
+            "https://target.scene7.com/is/image/Target/GUEST_533dbe78-c37b-4d45-be91-b9ae61e22320"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 100,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 100,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "Vera Bradley",
+          "id": "10007521"
+        }
+      },
+      {
+        "position": 17,
+        "product": {
+          "title": "baggallini Modern Pocket Vegan Leather Crossbody Bag",
+          "link": "https://www.target.com/p/baggallini-modern-pocket-vegan-leather-crossbody-bag/-/A-87449407",
+          "tcin": "87449407",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Baggallini",
+          "brand_link": "https://www.target.com/b/baggallini/-/N-q643le1hcdb",
+          "feature_bullets": [
+            "Vegan leather",
+            "52\" removable, adjustable crossbody strap",
+            "Interior organization and multifunctional pockets",
+            "Grab and Go Phone Pocket",
+            "RFID protected card slots"
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_1fa5d594-13f2-4b71-a1dd-58d91c424fb1",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_1fa5d594-13f2-4b71-a1dd-58d91c424fb1",
+            "https://target.scene7.com/is/image/Target/GUEST_f53af191-1a44-4614-9c1d-603e7ec45c25",
+            "https://target.scene7.com/is/image/Target/GUEST_b0ea4b1c-4f72-44b9-a12e-fa915687eb1c",
+            "https://target.scene7.com/is/image/Target/GUEST_5f814289-9317-4081-8d58-5468009aeaa1",
+            "https://target.scene7.com/is/image/Target/GUEST_e60c4b92-4391-482e-9e9a-90d7edb45e83"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 100,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 100,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "baggallini",
+          "id": "10008220"
+        }
+      },
+      {
+        "position": 18,
+        "product": {
+          "title": "baggallini Women's Medium Carryall Tote Bag with Crossbody Strap",
+          "link": "https://www.target.com/p/baggallini-women-s-medium-carryall-tote-bag-with-crossbody-strap/-/A-86435059",
+          "tcin": "86435059",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Baggallini",
+          "brand_link": "https://www.target.com/b/baggallini/-/N-q643le1hcdb",
+          "feature_bullets": [
+            "Crafted to be clean",
+            "11.5\" Shoulder drop",
+            "52\" removable, adjustable crossbody strap",
+            "Quick access phone pocket",
+            "Multifunctional pockets"
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_588041a2-293c-4282-977c-9f1e24f7865d",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_588041a2-293c-4282-977c-9f1e24f7865d",
+            "https://target.scene7.com/is/image/Target/GUEST_41119d5b-f21d-47db-b0bc-cdd7be7f359b",
+            "https://target.scene7.com/is/image/Target/GUEST_fafa34bd-226a-4db0-9f08-e33e77bd6cf8",
+            "https://target.scene7.com/is/image/Target/GUEST_971db5f4-2b71-4656-b18b-3d1f3c04b9d9",
+            "https://target.scene7.com/is/image/Target/GUEST_05251b15-3fe1-4142-9df6-203b5a9086d4"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 100,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 100,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "baggallini",
+          "id": "10008220"
+        }
+      },
+      {
+        "position": 19,
+        "product": {
+          "title": "GiGi New York Purple All In One Clutch Bag",
+          "link": "https://www.target.com/p/gigi-new-york-purple-all-in-one-clutch-bag/-/A-81830366",
+          "tcin": "81830366",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "GiGi New York",
+          "brand_link": "https://www.target.com/b/gigi-new-york/-/N-q643len507s",
+          "feature_bullets": [
+            "Top zipper closure",
+            "Interior slip pocket",
+            "Signature gold tassel cap",
+            "Handcrafted",
+            "Size: 9 1/2\" W x 7\" H"
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_03c88eb6-842b-46e1-b106-326eecff643d",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_03c88eb6-842b-46e1-b106-326eecff643d",
+            "https://target.scene7.com/is/image/Target/GUEST_df11cc5b-2d2b-4a11-92c7-3b2ceef906ea"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 98,
+            "currency": "USD",
+            "symbol": "$",
+            "regular_price": 140
+          },
+          "all_offers": [
+            {
+              "price": 98,
+              "currency": "USD",
+              "symbol": "$",
+              "regular_price": 140
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "GiGi New York",
+          "id": "10004740"
+        }
+      },
+      {
+        "position": 20,
+        "product": {
+          "title": "baggallini Women's Urban Explorer Multi Crossbody Convertible Bag",
+          "link": "https://www.target.com/p/baggallini-women-s-urban-explorer-multi-crossbody-convertible-bag/-/A-87608395",
+          "tcin": "87608395",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Baggallini",
+          "brand_link": "https://www.target.com/b/baggallini/-/N-q643le1hcdb",
+          "feature_bullets": [
+            "Crafted to be clean",
+            "52\" adjustable, removeable strap converts from crossbody to waistpack strap",
+            "When worn as waistpack or across the body, strap adjusts from 30\" to 56\" circumference.",
+            "2 Soft elastic loops for lipstick or pens",
+            "Scratch resistant pocket"
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_07696382-9e6a-4c61-a3dd-8d847d0d9a12",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_07696382-9e6a-4c61-a3dd-8d847d0d9a12",
+            "https://target.scene7.com/is/image/Target/GUEST_5c8f6b8e-40cf-4e8f-9d2c-e728683cbd2b",
+            "https://target.scene7.com/is/image/Target/GUEST_ce5ce3c6-5d24-4d29-ab4b-a9f94ad48f71",
+            "https://target.scene7.com/is/image/Target/GUEST_c5549d89-8a81-46fd-afdb-7063e3b34d01",
+            "https://target.scene7.com/is/image/Target/GUEST_5d15ea86-405a-4316-a22b-caba5aef18f5",
+            "https://target.scene7.com/is/image/Target/GUEST_01dd8d2b-509d-4656-bd8c-e1cd91740cd4"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 95,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 95,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "baggallini",
+          "id": "10008220"
+        }
+      },
+      {
+        "position": 21,
+        "product": {
+          "title": "baggallini Women's Sorrento RFID Hobo Crossbody Bag",
+          "link": "https://www.target.com/p/baggallini-women-s-sorrento-rfid-hobo-crossbody-bag/-/A-87047211",
+          "tcin": "87047211",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Baggallini",
+          "brand_link": "https://www.target.com/b/baggallini/-/N-q643le1hcdb",
+          "feature_bullets": [
+            "Lightweight, water-resistant nylon",
+            "52\" adjustable crossbody strap",
+            "RFID protected card slots",
+            "Interior organization",
+            "Quick access phone pocket"
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_f5639739-b477-485c-ab15-f2d1fe724a1a",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_f5639739-b477-485c-ab15-f2d1fe724a1a",
+            "https://target.scene7.com/is/image/Target/GUEST_3a1f14bc-64bf-4046-8be7-293be8ba6d3d",
+            "https://target.scene7.com/is/image/Target/GUEST_5eeb77fe-d1fe-424d-b7b5-6b9f099a4c5a",
+            "https://target.scene7.com/is/image/Target/GUEST_a0c74096-6fe6-4328-97b5-6e77fe0e29fa",
+            "https://target.scene7.com/is/image/Target/GUEST_5360c70c-13e9-4480-b8b4-afe8fab8758d",
+            "https://target.scene7.com/is/image/Target/GUEST_bc799fe3-1e4f-46da-971f-c9a4f019bcda",
+            "https://target.scene7.com/is/image/Target/GUEST_6081e138-0684-4aa3-ba8e-76601a5610be"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 95,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 95,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "baggallini",
+          "id": "10008220"
+        }
+      },
+      {
+        "position": 22,
+        "product": {
+          "title": "Vera Bradley Women's Performance Twill Medium Travel Duffel Bag Navy Garden",
+          "link": "https://www.target.com/p/vera-bradley-women-s-performance-twill-medium-travel-duffel-bag-navy-garden/-/A-87647779",
+          "tcin": "87647779",
+          "class_id": 4,
+          "department_id": 69,
+          "brand": "Vera Bradley",
+          "brand_link": "https://www.target.com/b/vera-bradley/-/N-iyvv0",
+          "feature_bullets": [
+            "Made from quilted, sleek, water-repellent polyester",
+            "Shop Vera Bradley for top gifts for women. Graduation, birthdays, Christmas and Mother's Day, we have all of the options you're searching for to make her smile",
+            "Vera Bradley is a destination for Tote Bags, Travel Styles, Backpacks and Accessories for women",
+            "Zip closure",
+            "Capacity 42 L."
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_b49a16f6-b7e2-47c4-88d6-2e8725ca8caf",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_b49a16f6-b7e2-47c4-88d6-2e8725ca8caf",
+            "https://target.scene7.com/is/image/Target/GUEST_8e68a65c-28f1-4c57-aed9-0c3639530af1",
+            "https://target.scene7.com/is/image/Target/GUEST_a798ce95-b818-443e-b05b-1aa58354d1c2",
+            "https://target.scene7.com/is/image/Target/GUEST_3eb78ca2-2d03-401d-a3e6-f4646ae4abc3",
+            "https://target.scene7.com/is/image/Target/GUEST_f865d2e2-6119-4248-894d-b9e5ebeead4c"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 94.5,
+            "currency": "USD",
+            "symbol": "$",
+            "regular_price": 135
+          },
+          "all_offers": [
+            {
+              "price": 94.5,
+              "currency": "USD",
+              "symbol": "$",
+              "regular_price": 135
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "Vera Bradley",
+          "id": "10007521"
+        }
+      },
+      {
+        "position": 23,
+        "product": {
+          "title": "baggallini Modern Pocket Half Moon Shoulder Bag",
+          "link": "https://www.target.com/p/baggallini-modern-pocket-half-moon-shoulder-bag/-/A-88558704",
+          "tcin": "88558704",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Baggallini",
+          "brand_link": "https://www.target.com/b/baggallini/-/N-q643le1hcdb",
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_6de115ec-7276-43ba-b141-7c52e1696a51",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_6de115ec-7276-43ba-b141-7c52e1696a51",
+            "https://target.scene7.com/is/image/Target/GUEST_1c40f280-eca6-47d7-8cfa-8bbd66c323b0",
+            "https://target.scene7.com/is/image/Target/GUEST_5776736a-93de-4111-a331-0d2d700b02a3",
+            "https://target.scene7.com/is/image/Target/GUEST_ae2d34f4-42ff-4f23-aa95-d3794016df8a",
+            "https://target.scene7.com/is/image/Target/GUEST_636c7af8-c5ed-4fce-909c-bda989a8fe01",
+            "https://target.scene7.com/is/image/Target/GUEST_4d82609f-7cff-4537-8361-9161884a491a",
+            "https://target.scene7.com/is/image/Target/GUEST_9ae4d09c-837c-4215-bc94-1d82453f180f"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 90,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 90,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "baggallini",
+          "id": "10008220"
+        }
+      },
+      {
+        "position": 24,
+        "product": {
+          "title": "baggallini Go Bagg Crossbody Bag with RFID Wristlet",
+          "link": "https://www.target.com/p/baggallini-go-bagg-crossbody-bag-with-rfid-wristlet/-/A-87130530",
+          "tcin": "87130530",
+          "class_id": 2,
+          "department_id": 24,
+          "brand": "Baggallini",
+          "brand_link": "https://www.target.com/b/baggallini/-/N-q643le1hcdb",
+          "feature_bullets": [
+            "Crafted to be clean",
+            "52\" adjustable crossbody strap",
+            "Removeable RFID wristlet included",
+            "Wristlet holds iPhone 8 plus phone and has 3 card slots",
+            "Interior organization and multifunctional pockets"
+          ],
+          "main_image": "https://target.scene7.com/is/image/Target/GUEST_14e6fcc3-2321-46fe-9276-13dda8cec157",
+          "images": [
+            "https://target.scene7.com/is/image/Target/GUEST_14e6fcc3-2321-46fe-9276-13dda8cec157",
+            "https://target.scene7.com/is/image/Target/GUEST_cd692847-e0d9-41d8-aa01-a27d93591cda",
+            "https://target.scene7.com/is/image/Target/GUEST_5e6be3f5-7323-44d5-95f6-4612d91c9985",
+            "https://target.scene7.com/is/image/Target/GUEST_9ed5521f-8d35-4ec0-a3a4-f97a908992e3",
+            "https://target.scene7.com/is/image/Target/GUEST_054ead4d-7eaf-4cd7-800b-5826a77dd968"
+          ]
+        },
+        "offers": {
+          "primary": {
+            "price": 90,
+            "currency": "USD",
+            "symbol": "$"
+          },
+          "all_offers": [
+            {
+              "price": 90,
+              "currency": "USD",
+              "symbol": "$"
+            }
+          ]
+        },
+        "fulfillment": {
+          "type": "3p"
+        },
+        "seller": {
+          "name": "baggallini",
+          "id": "10008220"
+        }
+      }
+    ],
+    "related_queries": [
+      {
+        "query": "black glitter clutch purse",
+        "link": "https://www.target.com/s?searchTerm=black+glitter+clutch+purse"
+      },
+      {
+        "query": "merona purses",
+        "link": "https://www.target.com/s?searchTerm=merona+purses"
+      },
+      {
+        "query": "straw tote beach bag",
+        "link": "https://www.target.com/s?searchTerm=straw+tote+beach+bag"
+      },
+      {
+        "query": "bags duffle purse",
+        "link": "https://www.target.com/s?searchTerm=bags+duffle+purse"
+      },
+      {
+        "query": "emerald green merona purse",
+        "link": "https://www.target.com/s?searchTerm=emerald+green+merona+purse"
+      },
+      {
+        "query": "striped beach tote bag",
+        "link": "https://www.target.com/s?searchTerm=striped+beach+tote+bag"
+      },
+      {
+        "query": "lime green purses",
+        "link": "https://www.target.com/s?searchTerm=lime+green+purses"
+      },
+      {
+        "query": "leather crossbody bags",
+        "link": "https://www.target.com/s?searchTerm=leather+crossbody+bags"
+      },
+      {
+        "query": "microfiber bags",
+        "link": "https://www.target.com/s?searchTerm=microfiber+bags"
+      },
+      {
+        "query": "black strappy heel sandals",
+        "link": "https://www.target.com/s?searchTerm=black+strappy+heel+sandals"
+      }
+    ],
+    "pagination": {
+      "current": {
+        "page": 1,
+        "link": "https://www.target.com/c/-/N-5xtbo?sortBy=PriceHigh&Nao=0&facetedValue=5zkq6"
+      },
+      "next": {
+        "page": 2,
+        "link": "https://www.target.com/c/-/N-5xtbo?sortBy=PriceHigh&Nao=24&facetedValue=5zkq6"
+      },
+      "total_pages": 8,
+      "total_results": 186
+    },
+    "facets": [
+      {
+        "display_name": "Gender",
+        "name": "d_gender_all",
+        "values": [
+          {
+            "display_name": "Gender Neutral",
+            "value": "gender neutral",
+            "id": "3qu2h"
+          },
+          {
+            "display_name": "Men",
+            "value": "men",
+            "id": "bwm7k"
+          },
+          {
+            "display_name": "Women",
+            "value": "women",
+            "id": "myjc5"
+          }
+        ]
+      },
+      {
+        "display_name": "Type",
+        "name": "d_item_type_all",
+        "values": [
+          {
+            "display_name": "Backpacks",
+            "value": "backpacks",
+            "id": "qvwd2"
+          },
+          {
+            "display_name": "Bifold Wallets",
+            "value": "bifold wallets",
+            "id": "ra48e"
+          },
+          {
+            "display_name": "Bucket Bags",
+            "value": "bucket bags",
+            "id": "y09cz"
+          },
+          {
+            "display_name": "Card Cases",
+            "value": "card cases",
+            "id": "bgwoo"
+          },
+          {
+            "display_name": "Clutches",
+            "value": "clutches",
+            "id": "70obk"
+          },
+          {
+            "display_name": "Coin Purses",
+            "value": "coin purses",
+            "id": "cw9o0"
+          },
+          {
+            "display_name": "Crossbody Bags",
+            "value": "crossbody bags",
+            "id": "mmrmq"
+          },
+          {
+            "display_name": "Duffel Bags",
+            "value": "duffel bags",
+            "id": "7dwg7"
+          },
+          {
+            "display_name": "Fanny Packs",
+            "value": "fanny packs",
+            "id": "mtujk"
+          },
+          {
+            "display_name": "Front Pocket Wallets",
+            "value": "front pocket wallets",
+            "id": "9385s"
+          },
+          {
+            "display_name": "Garment Bags",
+            "value": "garment bags",
+            "id": "cutva"
+          },
+          {
+            "display_name": "Lanyard Wallets",
+            "value": "lanyard wallets",
+            "id": "al25lfwjng3"
+          },
+          {
+            "display_name": "Money Belts",
+            "value": "money belts",
+            "id": "al25lfvcokn"
+          },
+          {
+            "display_name": "RFID Wallets",
+            "value": "rfid wallets",
+            "id": "fjgqp"
+          },
+          {
+            "display_name": "Satchels",
+            "value": "satchels",
+            "id": "qer41"
+          },
+          {
+            "display_name": "Shoulder Bags",
+            "value": "shoulder bags",
+            "id": "7n8tv"
+          },
+          {
+            "display_name": "Top Handle Bags",
+            "value": "top handle bags",
+            "id": "al25lf611lo"
+          },
+          {
+            "display_name": "Tote Bags",
+            "value": "tote bags",
+            "id": "k9grv"
+          },
+          {
+            "display_name": "Trifold Wallets",
+            "value": "trifold wallets",
+            "id": "q7pae"
+          },
+          {
+            "display_name": "Wallets",
+            "value": "wallets",
+            "id": "al25lf45ogc"
+          },
+          {
+            "display_name": "Weekender Bags",
+            "value": "weekender bags",
+            "id": "frg0c"
+          },
+          {
+            "display_name": "Wristlets",
+            "value": "wristlets",
+            "id": "vpxq"
+          },
+          {
+            "display_name": "Zip Wallets",
+            "value": "zip wallets",
+            "id": "5hg66"
+          }
+        ]
+      },
+      {
+        "display_name": "Price",
+        "name": "d_pricerange",
+        "values": [
+          {
+            "display_name": "$0 - $15",
+            "value": "$0 - $15",
+            "id": "5zja2"
+          },
+          {
+            "display_name": "$15 - $25",
+            "value": "$15 - $25",
+            "id": "5zja3"
+          },
+          {
+            "display_name": "$25 - $50",
+            "value": "$25 - $50",
+            "id": "5zja4"
+          },
+          {
+            "display_name": "$50 - $100",
+            "value": "$50 - $100",
+            "id": "5zja5"
+          },
+          {
+            "display_name": "$100 - $150",
+            "value": "$100 - $150",
+            "id": "5zja6"
+          },
+          {
+            "display_name": "$150 - $200",
+            "value": "$150 - $200",
+            "id": "5zja7"
+          },
+          {
+            "display_name": "$200 - $300",
+            "value": "$200 - $300",
+            "id": "5zja8"
+          }
+        ]
+      },
+      {
+        "display_name": "Color",
+        "name": "d_product_color",
+        "values": [
+          {
+            "display_name": "Beige",
+            "value": "beige",
+            "id": "gup4zc5xktm"
+          },
+          {
+            "display_name": "Black",
+            "value": "black",
+            "id": "gup4zc5zk7s"
+          },
+          {
+            "display_name": "Blue",
+            "value": "blue",
+            "id": "gup4zc5xku0"
+          },
+          {
+            "display_name": "Brown",
+            "value": "brown",
+            "id": "gup4zc5xkun"
+          },
+          {
+            "display_name": "Clear",
+            "value": "clear",
+            "id": "gup4zc5zkqb"
+          },
+          {
+            "display_name": "Gold",
+            "value": "gold",
+            "id": "gup4zc5xkto"
+          },
+          {
+            "display_name": "Gray",
+            "value": "gray",
+            "id": "gup4zc5xkum"
+          },
+          {
+            "display_name": "Green",
+            "value": "green",
+            "id": "gup4zc5xkwh"
+          },
+          {
+            "display_name": "Multicolored",
+            "value": "multicolored",
+            "id": "gup4zc5xkw9"
+          },
+          {
+            "display_name": "Off-White",
+            "value": "off-white",
+            "id": "gup4zc5xker"
+          },
+          {
+            "display_name": "Orange",
+            "value": "orange",
+            "id": "esftk"
+          },
+          {
+            "display_name": "Pink",
+            "value": "pink",
+            "id": "gup4zc5xkwk"
+          },
+          {
+            "display_name": "Purple",
+            "value": "purple",
+            "id": "gup4zc5xkug"
+          },
+          {
+            "display_name": "Red",
+            "value": "red",
+            "id": "gup4zc5xkvl"
+          },
+          {
+            "display_name": "Silver",
+            "value": "silver",
+            "id": "gup4zc5zk8t"
+          },
+          {
+            "display_name": "White",
+            "value": "white",
+            "id": "gup4zc5xkwv"
+          },
+          {
+            "display_name": "Yellow",
+            "value": "yellow",
+            "id": "gup4zc5xkpk"
+          }
+        ]
+      },
+      {
+        "display_name": "Brand",
+        "name": "d_brand_all",
+        "values": [
+          {
+            "display_name": "A New Day",
+            "value": "a new day",
+            "id": "xrye7"
+          },
+          {
+            "display_name": "A. Saks",
+            "value": "a. saks",
+            "id": "q643lejlbcj"
+          },
+          {
+            "display_name": "Alpine Swiss",
+            "value": "alpine swiss",
+            "id": "q643le18jv5"
+          },
+          {
+            "display_name": "Baggallini",
+            "value": "baggallini",
+            "id": "q643le1hcdb"
+          },
+          {
+            "display_name": "Bioworld",
+            "value": "bioworld",
+            "id": "unell"
+          },
+          {
+            "display_name": "Capezio",
+            "value": "capezio",
+            "id": "q643le8gsya"
+          },
+          {
+            "display_name": "Champion",
+            "value": "champion",
+            "id": "awma1"
+          },
+          {
+            "display_name": "CHUMS",
+            "value": "chums",
+            "id": "v6x9"
+          },
+          {
+            "display_name": "DC Comics",
+            "value": "dc comics",
+            "id": "55i2s"
+          },
+          {
+            "display_name": "Disney",
+            "value": "disney",
+            "id": "bgmat"
+          },
+          {
+            "display_name": "Doctor Who",
+            "value": "doctor who",
+            "id": "xf64e"
+          },
+          {
+            "display_name": "Embark",
+            "value": "embark",
+            "id": "aap7z"
+          },
+          {
+            "display_name": "Enesco",
+            "value": "enesco",
+            "id": "p79mg"
+          },
+          {
+            "display_name": "Evergreen",
+            "value": "evergreen",
+            "id": "5xgy6"
+          },
+          {
+            "display_name": "French Connection UK",
+            "value": "french connection uk",
+            "id": "q643ley7w7e"
+          },
+          {
+            "display_name": "GiGi New York",
+            "value": "gigi new york",
+            "id": "q643len507s"
+          },
+          {
+            "display_name": "Grand Fusion",
+            "value": "grand fusion",
+            "id": "q643lej3oni"
+          },
+          {
+            "display_name": "Hello Kitty",
+            "value": "hello kitty",
+            "id": "5y76o"
+          },
+          {
+            "display_name": "Houston White",
+            "value": "houston white",
+            "id": "q643lecg3pn"
+          },
+          {
+            "display_name": "Jadyn",
+            "value": "jadyn",
+            "id": "q643leukq0p"
+          },
+          {
+            "display_name": "JWorld",
+            "value": "jworld",
+            "id": "5v4g4"
+          },
+          {
+            "display_name": "Kipling",
+            "value": "kipling",
+            "id": "q643le8pjc9"
+          },
+          {
+            "display_name": "Kirby",
+            "value": "kirby",
+            "id": "rm69"
+          },
+          {
+            "display_name": "Lilo & Stitch",
+            "value": "lilo & stitch",
+            "id": "9y0by"
+          },
+          {
+            "display_name": "Madden Girl",
+            "value": "madden girl",
+            "id": "q643leteu6m"
+          },
+          {
+            "display_name": "Marvel",
+            "value": "marvel",
+            "id": "5xmps"
+          },
+          {
+            "display_name": "MERSI",
+            "value": "mersi",
+            "id": "q643leuxvw"
+          },
+          {
+            "display_name": "Mickey Mouse & Friends",
+            "value": "mickey mouse & friends",
+            "id": "4ucm6"
+          },
+          {
+            "display_name": "Mina Victory",
+            "value": "mina victory",
+            "id": "335ox"
+          },
+          {
+            "display_name": "Mud Pie",
+            "value": "mud pie",
+            "id": "q643lexmh9l"
+          },
+          {
+            "display_name": "My Hero Academia",
+            "value": "my hero academia",
+            "id": "hgq4h"
+          },
+          {
+            "display_name": "Nintendo",
+            "value": "nintendo",
+            "id": "5y626"
+          },
+          {
+            "display_name": "Okeechobee Fats",
+            "value": "okeechobee fats",
+            "id": "q643le6ucso"
+          },
+          {
+            "display_name": "Open Story",
+            "value": "open story",
+            "id": "vi5wb"
+          },
+          {
+            "display_name": "Outdoor Products",
+            "value": "outdoor products",
+            "id": "5fwlb"
+          },
+          {
+            "display_name": "PAC",
+            "value": "pac",
+            "id": "q643ledurtc"
+          },
+          {
+            "display_name": "Pokemon",
+            "value": "pokemon",
+            "id": "569t0"
+          },
+          {
+            "display_name": "Rifle Paper Co.",
+            "value": "rifle paper co.",
+            "id": "q643le7l0ks"
+          },
+          {
+            "display_name": "Sanrio",
+            "value": "sanrio",
+            "id": "knd57"
+          },
+          {
+            "display_name": "Se7en20",
+            "value": "se7en20",
+            "id": "gef1v"
+          },
+          {
+            "display_name": "Sesame Street",
+            "value": "sesame street",
+            "id": "5xz6l"
+          },
+          {
+            "display_name": "Seven Times Six",
+            "value": "seven times six",
+            "id": "q643led9s3t"
+          },
+          {
+            "display_name": "Shade & Shore",
+            "value": "shade & shore",
+            "id": "4uja2"
+          },
+          {
+            "display_name": "Sparkle and Bash",
+            "value": "sparkle and bash",
+            "id": "q643leumjwi"
+          },
+          {
+            "display_name": "Star Trek",
+            "value": "star trek",
+            "id": "79psf"
+          },
+          {
+            "display_name": "Star Wars",
+            "value": "star wars",
+            "id": "5xz5l"
+          },
+          {
+            "display_name": "Super Mario",
+            "value": "super mario",
+            "id": "4ykfq"
+          },
+          {
+            "display_name": "Superman",
+            "value": "superman",
+            "id": "56hrj"
+          },
+          {
+            "display_name": "Target Brands",
+            "value": "target brands",
+            "id": "xmf9o"
+          },
+          {
+            "display_name": "The Golden Girls",
+            "value": "the golden girls",
+            "id": "izp3l"
+          },
+          {
+            "display_name": "The Nightmare Before Christmas",
+            "value": "the nightmare before christmas",
+            "id": "4y58i"
+          },
+          {
+            "display_name": "Travelon",
+            "value": "travelon",
+            "id": "5cwnn"
+          },
+          {
+            "display_name": "Universal Thread",
+            "value": "universal thread",
+            "id": "1vs54"
+          },
+          {
+            "display_name": "Vera Bradley",
+            "value": "vera bradley",
+            "id": "iyvv0"
+          },
+          {
+            "display_name": "VR NYC",
+            "value": "vr nyc",
+            "id": "ju5l1"
+          },
+          {
+            "display_name": "Wild Fable",
+            "value": "wild fable",
+            "id": "e6p1m"
+          },
+          {
+            "display_name": "Wizarding World Harry Potter",
+            "value": "wizarding world harry potter",
+            "id": "q643leympyt"
+          },
+          {
+            "display_name": "World of Warcraft",
+            "value": "world of warcraft",
+            "id": "57n5p"
+          }
+        ]
+      },
+      {
+        "display_name": "Deals",
+        "name": "d_deals",
+        "values": [
+          {
+            "display_name": "All Deals",
+            "value": "all deals",
+            "id": "akkos"
+          },
+          {
+            "display_name": "Clearance",
+            "value": "clearance",
+            "id": "5tdv1"
+          },
+          {
+            "display_name": "Sale",
+            "value": "sale",
+            "id": "5tdv0"
+          },
+          {
+            "display_name": "Weekly Ad",
+            "value": "weekly ad",
+            "id": "55dgn"
+          }
+        ]
+      },
+      {
+        "display_name": "Features",
+        "name": "d_features_all",
+        "values": [
+          {
+            "display_name": "1-Bottle Holder",
+            "value": "1-bottle holder",
+            "id": "ecs1i"
+          },
+          {
+            "display_name": "2-Bottle Holders",
+            "value": "2-bottle holders",
+            "id": "i01tc"
+          },
+          {
+            "display_name": "Accessories Pocket",
+            "value": "accessories pocket",
+            "id": "e6yfr"
+          },
+          {
+            "display_name": "Adjustable Shoulder Strap",
+            "value": "adjustable shoulder strap",
+            "id": "5y6v1"
+          },
+          {
+            "display_name": "Adjustable Strap",
+            "value": "adjustable strap",
+            "id": "56dtr"
+          },
+          {
+            "display_name": "Back Pocket",
+            "value": "back pocket",
+            "id": "5xltr"
+          },
+          {
+            "display_name": "Backpack Straps",
+            "value": "backpack straps",
+            "id": "5o0sa"
+          },
+          {
+            "display_name": "Bill Compartment",
+            "value": "bill compartment",
+            "id": "fakk0"
+          },
+          {
+            "display_name": "Business Card Pocket",
+            "value": "business card pocket",
+            "id": "5v1aj"
+          },
+          {
+            "display_name": "Cell Phone Pocket",
+            "value": "cell phone pocket",
+            "id": "5y2dc"
+          },
+          {
+            "display_name": "Coin Purse",
+            "value": "coin purse",
+            "id": "5v1z9"
+          },
+          {
+            "display_name": "Convertible",
+            "value": "convertible",
+            "id": "5wp5t"
+          },
+          {
+            "display_name": "Credit Card Pockets",
+            "value": "credit card pockets",
+            "id": "5xv23"
+          },
+          {
+            "display_name": "Detachable Strap",
+            "value": "detachable strap",
+            "id": "5vgvz"
+          },
+          {
+            "display_name": "Detachable Straps",
+            "value": "detachable straps",
+            "id": "jd9p8"
+          },
+          {
+            "display_name": "Driver's License Pocket",
+            "value": "driver's license pocket",
+            "id": "5v1za"
+          },
+          {
+            "display_name": "Expandable",
+            "value": "expandable",
+            "id": "5woqk"
+          },
+          {
+            "display_name": "Front Accessory Pocket",
+            "value": "front accessory pocket",
+            "id": "5cm93"
+          },
+          {
+            "display_name": "Front Pocket",
+            "value": "front pocket",
+            "id": "5uz4g"
+          },
+          {
+            "display_name": "Front Pouch",
+            "value": "front pouch",
+            "id": "5xvr2"
+          },
+          {
+            "display_name": "Front Zip Pocket",
+            "value": "front zip pocket",
+            "id": "5v4hm"
+          },
+          {
+            "display_name": "Hydration Bladder Sleeve",
+            "value": "hydration bladder sleeve",
+            "id": "8lrhv"
+          },
+          {
+            "display_name": "ID Pocket",
+            "value": "id pocket",
+            "id": "5xv21"
+          },
+          {
+            "display_name": "Key Clip",
+            "value": "key clip",
+            "id": "ixhtg"
+          },
+          {
+            "display_name": "Laptop Pocket",
+            "value": "laptop pocket",
+            "id": "5uzue"
+          },
+          {
+            "display_name": "Large Interior Compartment",
+            "value": "large interior compartment",
+            "id": "568uk"
+          },
+          {
+            "display_name": "Lightweight Design",
+            "value": "lightweight design",
+            "id": "5y5ew"
+          },
+          {
+            "display_name": "Mesh Pocket",
+            "value": "mesh pocket",
+            "id": "5xwf7"
+          },
+          {
+            "display_name": "Multiple Compartments",
+            "value": "multiple compartments",
+            "id": "5y6v7"
+          },
+          {
+            "display_name": "No Compartments or Pockets",
+            "value": "no compartments or pockets",
+            "id": "ptu5m"
+          },
+          {
+            "display_name": "Organizer Pocket",
+            "value": "organizer pocket",
+            "id": "5xvr1"
+          },
+          {
+            "display_name": "Removable Pouch",
+            "value": "removable pouch",
+            "id": "56gaa"
+          },
+          {
+            "display_name": "RFID Blocking",
+            "value": "rfid blocking",
+            "id": "kp844"
+          },
+          {
+            "display_name": "Side Pockets",
+            "value": "side pockets",
+            "id": "5xwfc"
+          },
+          {
+            "display_name": "Slip Pocket",
+            "value": "slip pocket",
+            "id": "gx2il"
+          },
+          {
+            "display_name": "Tablet Pocket",
+            "value": "tablet pocket",
+            "id": "55a4y"
+          },
+          {
+            "display_name": "TSA Compliant",
+            "value": "tsa compliant",
+            "id": "89tnv"
+          },
+          {
+            "display_name": "Visual ID Access",
+            "value": "visual id access",
+            "id": "5rj5q"
+          },
+          {
+            "display_name": "Zip Pocket",
+            "value": "zip pocket",
+            "id": "5vgt1"
+          }
+        ]
+      },
+      {
+        "display_name": "Material",
+        "name": "d_material_all",
+        "values": [
+          {
+            "display_name": "100% recycled cotton",
+            "value": "100% recycled cotton",
+            "id": "ius6h"
+          },
+          {
+            "display_name": "100% recycled polyester",
+            "value": "100% recycled polyester",
+            "id": "hks0d"
+          },
+          {
+            "display_name": "Corn Husk",
+            "value": "corn husk",
+            "id": "ixwrv"
+          },
+          {
+            "display_name": "Cotton",
+            "value": "cotton",
+            "id": "5y75e"
+          },
+          {
+            "display_name": "Faux Leather",
+            "value": "faux leather",
+            "id": "5xvl7"
+          },
+          {
+            "display_name": "Leather",
+            "value": "leather",
+            "id": "5y5ey"
+          },
+          {
+            "display_name": "Nylon",
+            "value": "nylon",
+            "id": "5y77x"
+          },
+          {
+            "display_name": "Paper Straw",
+            "value": "paper straw",
+            "id": "hj226cx0qj7"
+          },
+          {
+            "display_name": "Plastic",
+            "value": "plastic",
+            "id": "5y763"
+          },
+          {
+            "display_name": "Polyester",
+            "value": "polyester",
+            "id": "5y745"
+          },
+          {
+            "display_name": "Polypropylene",
+            "value": "polypropylene",
+            "id": "5xypx"
+          },
+          {
+            "display_name": "Polyurethane",
+            "value": "polyurethane",
+            "id": "5y76g"
+          },
+          {
+            "display_name": "PVC (Polyvinyl Chloride)",
+            "value": "pvc (polyvinyl chloride)",
+            "id": "kr09z"
+          },
+          {
+            "display_name": "Seagrass",
+            "value": "seagrass",
+            "id": "5y28s"
+          },
+          {
+            "display_name": "Silicone",
+            "value": "silicone",
+            "id": "5y6in"
+          },
+          {
+            "display_name": "Straw",
+            "value": "straw",
+            "id": "5um8n"
+          }
+        ]
+      },
+      {
+        "display_name": "Occasion",
+        "name": "d_occasion_worn_all",
+        "values": [
+          {
+            "display_name": "Wedding Guest",
+            "value": "wedding guest",
+            "id": "492nm"
+          },
+          {
+            "display_name": "Casual",
+            "value": "casual",
+            "id": "hx2zn"
+          }
+        ]
+      },
+      {
+        "display_name": "FPO/APO",
+        "name": "d_apo_fpo",
+        "values": [
+          {
+            "display_name": "only eligible items",
+            "value": "only eligible items",
+            "id": "vu13f"
+          }
+        ]
+      },
+      {
+        "display_name": "Laptop Size",
+        "name": "d_fits_laptop_size",
+        "values": [
+          {
+            "display_name": "No Laptop Pocket",
+            "value": "no laptop pocket",
+            "id": "dam7b0xjkl7"
+          },
+          {
+            "display_name": "Up to 15 Inches",
+            "value": "up to 15 inches",
+            "id": "dam7b0kl24g"
+          },
+          {
+            "display_name": "Up to 16 Inches",
+            "value": "up to 16 inches",
+            "id": "dam7b04xhg5"
+          }
+        ]
+      },
+      {
+        "display_name": "Care and Cleaning",
+        "name": "d_care_and_cleaning",
+        "values": [
+          {
+            "display_name": "Care Instructions Not Provided",
+            "value": "care instructions not provided",
+            "id": "v74nr"
+          },
+          {
+            "display_name": "Do Not Wash",
+            "value": "do not wash",
+            "id": "ne7aq"
+          },
+          {
+            "display_name": "Hand Wash",
+            "value": "hand wash",
+            "id": "p0qwm"
+          },
+          {
+            "display_name": "Machine Wash",
+            "value": "machine wash",
+            "id": "aaei3"
+          },
+          {
+            "display_name": "Spot Clean",
+            "value": "spot clean",
+            "id": "t09ba"
+          }
+        ]
+      },
+      {
+        "display_name": "Style",
+        "name": "d_apparel_style",
+        "values": [
+          {
+            "display_name": "Dome",
+            "value": "dome",
+            "id": "oil9xsqb4u6"
+          },
+          {
+            "display_name": "Hardside",
+            "value": "hardside",
+            "id": "oil9xsb3sue"
+          },
+          {
+            "display_name": "Lightweight",
+            "value": "lightweight",
+            "id": "oil9xs9v0w2"
+          },
+          {
+            "display_name": "Miniature",
+            "value": "miniature",
+            "id": "oil9xs1kku5"
+          },
+          {
+            "display_name": "Pouch",
+            "value": "pouch",
+            "id": "oil9xsvor1q"
+          },
+          {
+            "display_name": "Softside",
+            "value": "softside",
+            "id": "oil9xsfhiiu"
+          },
+          {
+            "display_name": "Square",
+            "value": "square",
+            "id": "oil9xsk2ann"
+          }
+        ]
+      },
+      {
+        "display_name": "Age",
+        "name": "d_target_audience_all",
+        "values": [
+          {
+            "display_name": "Kids",
+            "value": "kids",
+            "id": "8n35m"
+          },
+          {
+            "display_name": "Teen",
+            "value": "teen",
+            "id": "22nay"
+          },
+          {
+            "display_name": "Adult",
+            "value": "adult",
+            "id": "xyok5"
+          },
+          {
+            "display_name": "All Ages",
+            "value": "all ages",
+            "id": "8fvtm"
+          }
+        ]
+      },
+      {
+        "display_name": "Discount",
+        "name": "d_discount",
+        "values": [
+          {
+            "display_name": "10% off or more",
+            "value": "10% off or more",
+            "id": "zl12k"
+          },
+          {
+            "display_name": "15% off or more",
+            "value": "15% off or more",
+            "id": "itlc4"
+          },
+          {
+            "display_name": "20% off or more",
+            "value": "20% off or more",
+            "id": "zmzxt"
+          },
+          {
+            "display_name": "25% off or more",
+            "value": "25% off or more",
+            "id": "y6hyw"
+          },
+          {
+            "display_name": "30% off or more",
+            "value": "30% off or more",
+            "id": "oxtuz"
+          },
+          {
+            "display_name": "35% off or more",
+            "value": "35% off or more",
+            "id": "hm44m"
+          },
+          {
+            "display_name": "40% off or more",
+            "value": "40% off or more",
+            "id": "f09ck"
+          },
+          {
+            "display_name": "50% off or more",
+            "value": "50% off or more",
+            "id": "f2lcs"
+          }
+        ]
+      },
+      {
+        "display_name": "Number of Wheels",
+        "name": "d_number_of_wheels",
+        "values": [
+          {
+            "display_name": "2",
+            "value": "2",
+            "id": "liou79jj7pp"
+          },
+          {
+            "display_name": "4",
+            "value": "4",
+            "id": "liou79k0bem"
+          },
+          {
+            "display_name": "No Wheels",
+            "value": "no wheels",
+            "id": "liou79oem43"
+          }
+        ]
+      }
+    ],
+    "breadcrumbs": [
+      {
+        "name": "Clothing, Shoes & Accessories",
+        "link": "https://www.target.com/c/clothing-shoes-accessories/-/N-rdihz",
+        "category_id": "rdihz"
+      },
+      {
+        "name": "Accessories",
+        "link": "https://www.target.com/c/accessories/-/N-4ylcv",
+        "category_id": "4ylcv"
+      },
+      {
+        "name": "Handbags & Purses",
+        "link": "https://www.target.com/c/handbags-purses-accessories/-/N-5xtbo",
+        "category_id": "5xtbo"
+      }
+    ]
+  }

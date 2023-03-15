@@ -66,36 +66,6 @@ class GameSession(models.Model):
         # This must return a string
         return f"The game code is named '{self.session_name}'"
     
-
-
-
-
-
-# # Create your models here.
-# class Mango(models.Model):
-#   # define fields
-#   # https://docs.djangoproject.com/en/3.0/ref/models/fields/
-#   name = models.CharField(max_length=100)
-#   ripe = models.BooleanField()
-#   color = models.CharField(max_length=100)
-#   owner = models.ForeignKey(
-#       get_user_model(),
-#       on_delete=models.CASCADE
-#   )
-
-#   def __str__(self):
-#     # This must return a string
-#     return f"The mango named '{self.name}' is {self.color} in color. It is {self.ripe} that it is ripe."
-
-#   def as_dict(self):
-#     """Returns dictionary version of Mango models"""
-#     return {
-#         'id': self.id,
-#         'name': self.name,
-#         'ripe': self.ripe,
-#         'color': self.color
-#     }
-
 ### Connection between Users & Game Sessions ###
 class Player(models.Model):
     # Grab the user & game session
@@ -141,8 +111,6 @@ class Player(models.Model):
         #     data[f.name] = [i.id for i in f.value_from_object(instance)]
         return data
 
-    # class Meta:
-    #     abstract = True
 
 class PlayerResponse(models.Model):
     sms_sid = models.CharField(max_length=100)
