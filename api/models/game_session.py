@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from . import User
 import uuid
+from itertools import chain
 
 class Question(models.Model):
     prompt = models.CharField(max_length=1000)
@@ -129,6 +130,20 @@ class Player(models.Model):
             'score': self.score,
             'winner': self.winner
         }
+
+
+    def to_dict(instance):
+        opts = instance._meta
+        data = {}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = f.value_from_object(instance)
+        # for f in opts.many_to_many:
+        #     data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
+
+    # class Meta:
+    #     abstract = True
+
 class PlayerResponse(models.Model):
     sms_sid = models.CharField(max_length=100)
     response = models.CharField(max_length=1000)

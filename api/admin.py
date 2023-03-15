@@ -41,7 +41,7 @@ class UserAdmin(BaseUserAdmin):
 # class to format the pages:
 admin.site.register(User, UserAdmin)
 admin.site.register(GameSession)
-admin.site.register(Player)
+# admin.site.register(Player)
 admin.site.register(Question)
 admin.site.register(PlayerResponse)
 # admin.site.register(Mango)

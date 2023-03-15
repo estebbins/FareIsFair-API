@@ -2,7 +2,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.authentication import SessionAuthentication
-from rest_framework import status, generics
+from rest_framework import status, generics, viewsets
 from rest_framework.decorators import api_view, renderer_classes, permission_classes
 from rest_framework.renderers import JSONRenderer, TemplateHTMLRenderer
 from django.shortcuts import get_object_or_404
@@ -552,3 +552,33 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
 #         data = MangoSerializer(mango).data
 #         return Response({ 'mango': data })
 
+class GamePlayerIndex(viewsets.ModelViewSet):
+    authentication_classes=[ SessionAuthentication ]
+    permission_classes=(IsAuthenticated,)
+    serializer_class = PlayerSerializer
+    def get(self, request, pk):
+        """Index request"""
+        # Get all the games
+        players = Player.objects.filter(game=pk).distinct().order_by('score')
+        print('players', players)
+        # Run the data through the serializer
+        # print('gamesession(gamesessions)', GameSessionSerializer(gamesessions, many=True))
+        data = PlayerSerializer(players, many=True).data
+        # print('gamesessionview data', data)
+        print('data', data)
+        queryset=Player.objects.all()
+        return Response({ "playerData": data })
+    
+
+@api_view(('GET',))
+@renderer_classes((TemplateHTMLRenderer, JSONRenderer))
+def get_players(request, pk):
+    players = Player.objects.filter(game=pk).distinct()
+    print('players', players)
+    # Run the data through the serializer
+    # print('gamesession(gamesessions)', GameSessionSerializer(gamesessions, many=True))
+    data = PlayerSerializer(players, many=True).data
+    # print('gamesessionview data', data)
+    # print('data', data)
+    return Response({ "playerData": data })
+    
