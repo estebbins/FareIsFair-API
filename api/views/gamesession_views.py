@@ -113,7 +113,7 @@ def assoc_questions(request, gamesession_id):
 @renderer_classes((TemplateHTMLRenderer, JSONRenderer))
 def assoc_players(request):
     """Add questions to game session array when game is started"""
-    # ! REVISION STILL NEEDED IF THIS IS AN EDIT FROM FRONT END - EDIT IN ADMIN ALSO DOESN'T WORK
+    # ! REVISION STILL NEEDED IF THIS IS AN EDIT FROM FRONT END
     authentication_classes=[ SessionAuthentication ]
     permission_classes=(IsAuthenticated,)
     print('assocplayer req', request)
@@ -538,19 +538,6 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
         data = UserSerializer(user).data
         return Response({ 'user': data })
 
-# class MangoDetail(generics.RetrieveUpdateDestroyAPIView):
-#     permission_classes=(IsAuthenticated,)
-#     def get(self, request, pk):
-#         """Show request"""
-#         # Locate the mango to show
-#         mango = get_object_or_404(Mango, pk=pk)
-#         # Only want to show owned mangos?
-#         if request.user != mango.owner:
-#             raise PermissionDenied('Unauthorized, you do not own this mango')
-
-#         # Run the data through the serializer so it's formatted
-#         data = MangoSerializer(mango).data
-#         return Response({ 'mango': data })
 
 class GamePlayerIndex(viewsets.ModelViewSet):
     authentication_classes=[ SessionAuthentication ]
